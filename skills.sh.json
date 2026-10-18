@@ -1,0 +1,82 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Start here",
+      "description": "Console conventions and the entry point to the other skills, first setup, installation and upgrades, and a troubleshooting method.",
+      "skills": [
+        "routeros-fundamentals",
+        "routeros-initial-setup",
+        "routeros-install-upgrade",
+        "routeros-troubleshooting"
+      ]
+    },
+    {
+      "title": "Security and access",
+      "description": "Firewall, users and AAA, certificates, management tools and the REST and binary APIs.",
+      "skills": [
+        "routeros-firewall",
+        "routeros-users-aaa",
+        "routeros-certificates",
+        "routeros-management-tools",
+        "routeros-api"
+      ]
+    },
+    {
+      "title": "Interfaces and IP services",
+      "description": "Ethernet and SFP, bridges and VLANs, addressing, DHCP, DNS, queues and network services.",
+      "skills": [
+        "routeros-ethernet",
+        "routeros-bridging-switching",
+        "routeros-ip-addressing",
+        "routeros-dhcp",
+        "routeros-dns",
+        "routeros-queues",
+        "routeros-network-services"
+      ]
+    },
+    {
+      "title": "Routing, tunnels and redundancy",
+      "description": "Static and dynamic routing, OSPF, BGP, MPLS, VPN tunnels, IPsec, VRRP, bonding and load balancing.",
+      "skills": [
+        "routeros-routing",
+        "routeros-ospf",
+        "routeros-bgp",
+        "routeros-mpls",
+        "routeros-vpn",
+        "routeros-ipsec",
+        "routeros-high-availability"
+      ]
+    },
+    {
+      "title": "Wireless, mobile and access networks",
+      "description": "Wi-Fi and CAPsMAN, LTE and 5G, HotSpot captive portals and the User Manager RADIUS server.",
+      "skills": [
+        "routeros-wireless",
+        "routeros-mobile-networking",
+        "routeros-hotspot",
+        "routeros-user-manager"
+      ]
+    },
+    {
+      "title": "Operations and automation",
+      "description": "Clock, scheduler and services, logging and monitoring, and the scripting language.",
+      "skills": [
+        "routeros-system-utilities",
+        "routeros-diagnostics-monitoring",
+        "routeros-scripting"
+      ]
+    },
+    {
+      "title": "Hardware, storage and apps",
+      "description": "Product manuals and PoE, disks and network storage, containers and apps, and IoT features.",
+      "skills": [
+        "routeros-hardware",
+        "routeros-storage",
+        "routeros-containers",
+        "routeros-iot"
+      ]
+    }
+  ]
+}
