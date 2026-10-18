@@ -50,6 +50,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-user-manager](skills/routeros-user-manager/SKILL.md) | User Manager RADIUS and billing server: routers, users, profiles, limitations, payments |
 | [routeros-iot](skills/routeros-iot/SKILL.md) | Internet of Things: MQTT broker and publisher, Bluetooth, LoRa, Modbus, GPIO, Wiliot |
 | [routeros-storage](skills/routeros-storage/SKILL.md) | Disks, mount points, RAID, Btrfs, encryption, SMB, NFS, iSCSI, NVMe over TCP, SSHFS, rsync, DLNA |
+| [routeros-containers](skills/routeros-containers/SKILL.md) | Containers (Docker images), veth networking, mounts, env lists, resource limits and the /app catalog |
 
 ## How a skill is laid out
 
