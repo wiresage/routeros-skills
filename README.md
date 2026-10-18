@@ -36,6 +36,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
 | [routeros-dns](skills/routeros-dns/SKILL.md) | DNS resolver and cache, static entries and forwarders, adlists, DNS over HTTPS, mDNS repeater, DNS update |
 | [routeros-ip-addressing](skills/routeros-ip-addressing/SKILL.md) | IPv4 and IPv6 addresses, pools, ARP, neighbor discovery and RAs, SLAAC, kernel IP settings |
+| [routeros-network-services](skills/routeros-network-services/SKILL.md) | MikroTik cloud (DDNS, Back To Home, cloud backup, File Share), web proxy, reverse proxy, SOCKS, Socksify, OpenFlow |
 
 ## How a skill is laid out
 
