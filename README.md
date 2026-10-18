@@ -44,6 +44,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-system-utilities](skills/routeros-system-utilities/SKILL.md) | Clock and NTP, scheduler, services, device mode, files, fetch, email, identity, neighbor discovery, UPS, TFTP, Wake on LAN |
 | [routeros-diagnostics-monitoring](skills/routeros-diagnostics-monitoring/SKILL.md) | Logging, SNMP, Netwatch, ping and traceroute, torch, sniffer, bandwidth test, traffic flow, graphing, health, watchdog |
 | [routeros-troubleshooting](skills/routeros-troubleshooting/SKILL.md) | Support output files (supout.rif), reset, recovery, common knowledge-base fixes |
+| [routeros-hardware](skills/routeros-hardware/SKILL.md) | Product manuals, RouterBOARD, PoE, LEDs, ports, SFP, power and regulatory references for MikroTik hardware |
 
 ## How a skill is laid out
 
