@@ -1,0 +1,112 @@
+name: CI
+
+# Validates the skills and lints the scripts. It also is the health check: it runs on every push to master (a merge
+# is a push), so a red run on master means the last merge broke something and needs fixing first.
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  skills:
+    name: Skill format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Validate front matter and folder structure of every skill
+        run: python tools/validate_skills.py
+
+      - name: Check relative links in all Markdown files
+        run: python tools/check_links.py
+
+      - name: Check root files, README skills table and prose style
+        run: python tools/check_repo.py
+
+  python:
+    name: Lint Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: python -m pip install --upgrade pip ruff
+
+      - name: ruff check
+        run: ruff check .
+
+      - name: ruff format
+        run: ruff format --check .
+
+  shell:
+    name: Lint shell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: shellcheck
+        run: git ls-files -z '*.sh' | xargs -0 --no-run-if-empty shellcheck --severity=style
+
+      - name: bash -n
+        run: git ls-files -z '*.sh' | xargs -0 --no-run-if-empty -n1 bash -n
+
+  powershell:
+    name: Lint PowerShell scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force
+          $findings = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning, Error
+          $findings | Format-Table RuleName, Severity, ScriptName, Line, Message -AutoSize -Wrap
+          if ($findings) { throw "$($findings.Count) PSScriptAnalyzer finding(s)" }
+
+  health:
+    name: Health check
+    # Only after a merge to master, and only when everything above passed.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [skills, python, shell, powershell]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Every shipped script starts and prints its help
+        run: python tools/smoke_scripts.py
+
+      - name: The installers produce a valid installation
+        run: |
+          target="$RUNNER_TEMP/installed-skills"
+          scripts/install-skills.sh --target "$target"
+          python tools/validate_skills.py "$target"/*
+          test "$(ls "$target" | wc -l)" -eq "$(ls skills | wc -l)"
+
+      - name: The documentation snapshot matches the skills
+        run: python tools/check_snapshot.py
+
+      - name: Summary
+        run: python tools/check_snapshot.py --summary >> "$GITHUB_STEP_SUMMARY"
