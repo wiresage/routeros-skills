@@ -48,6 +48,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-high-availability](skills/routeros-high-availability/SKILL.md) | VRRP, bonding (LACP), load balancing, failover and redundancy |
 | [routeros-hotspot](skills/routeros-hotspot/SKILL.md) | HotSpot captive portal: setup, user profiles, authentication methods, walled garden, customization |
 | [routeros-user-manager](skills/routeros-user-manager/SKILL.md) | User Manager RADIUS and billing server: routers, users, profiles, limitations, payments |
+| [routeros-iot](skills/routeros-iot/SKILL.md) | Internet of Things: MQTT broker and publisher, Bluetooth, LoRa, Modbus, GPIO, Wiliot |
 
 ## How a skill is laid out
 
