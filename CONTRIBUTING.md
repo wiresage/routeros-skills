@@ -28,6 +28,7 @@ Refreshing the documentation needs three more packages (`pip install -r tools/re
 | Fix a wrong or missing page in a `references/` folder | Not the file itself: the file is generated. Fix `tools/` or report the error to MikroTik if the source is wrong |
 | Move a documentation page to another skill | `tools/scopes.json`, then rebuild |
 | Add a helper script | `skills/<name>/scripts/`, and mention it in that skill's `SKILL.md` |
+| Add a skill to the skills.sh page | `skills.sh.json` and the README table, in the same group (see [docs/skills-sh.md](docs/skills-sh.md)) |
 | Add a skill | See "Adding a skill" in [AGENTS.md](AGENTS.md) |
 | Refresh the documentation snapshot | `crawl_manual.py`, `crawl_help.py`, `build_references.py`, `verify_references.py` in `tools/` |
 

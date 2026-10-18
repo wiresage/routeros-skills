@@ -106,8 +106,20 @@ the common task correctly, and the references should be enough to do the rare on
 
 ## Install
 
-Skills are plain folders, so installing means copying or linking them into the place your agent reads skills from. The
-installers do that for you:
+With the [skills CLI](https://github.com/vercel-labs/skills) (Node 22.20 or newer), which also lists this repository on
+[skills.sh](https://skills.sh):
+
+```bash
+npx skills add wiresage/routeros-skills                                   # choose skills and agents interactively
+npx skills add wiresage/routeros-skills -s routeros-firewall routeros-vpn # selected skills
+npx skills add wiresage/routeros-skills --list                            # only show what is available
+```
+
+The CLI reports each install anonymously to skills.sh; set `DISABLE_TELEMETRY=1` to turn that off. How this repository
+is published there is described in [docs/skills-sh.md](docs/skills-sh.md).
+
+Skills are plain folders, so installing also means copying or linking them into the place your agent reads skills from.
+The installers in this repository do that without Node:
 
 ```bash
 scripts/install-skills.sh --target ~/.claude/skills            # every skill
