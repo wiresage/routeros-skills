@@ -30,6 +30,7 @@ from pathlib import Path
 
 import htmlmd
 import mdx
+import snapshot
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANUAL = "https://manual.mikrotik.com"
@@ -86,9 +87,17 @@ class Context:
 # ------------------------------------------------------------------ scopes
 
 
+def load_config(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def load_scopes(path: Path) -> dict[str, dict]:
-    data = json.loads(path.read_text(encoding="utf-8"))
-    return {s["name"]: s for s in data["scopes"]}
+    return {s["name"]: s for s in load_config(path)["scopes"]}
+
+
+def notes(table: dict) -> dict[str, str]:
+    """The entries of a scopes.json table without its ``_comment``."""
+    return {k: v for k, v in table.items() if not k.startswith("_")}
 
 
 def build_prefix_rules(scopes: dict[str, dict]) -> list[tuple[str, str, str]]:
@@ -330,8 +339,9 @@ def md_link(label: str, target: str) -> str:
     return f"[{label}]({target})"
 
 
-def build(cache: Path, scopes_file: Path, skills_dir: Path, only: set[str] | None) -> int:
-    scopes = load_scopes(scopes_file)
+def build(cache: Path, scopes_file: Path, skills_dir: Path, only: set[str] | None, snapshot_path: Path) -> int:
+    config = load_config(scopes_file)
+    scopes = {s["name"]: s for s in config["scopes"]}
     rules = build_prefix_rules(scopes)
     manifest = json.loads((cache / "manual" / "manifest.json").read_text(encoding="utf-8"))
     crawled = manifest["crawled"]
@@ -354,7 +364,9 @@ def build(cache: Path, scopes_file: Path, skills_dir: Path, only: set[str] | Non
         if scope is None:
             unassigned.append(path)
             continue
-        entry = Entry(scope, "guides", f"guides/{relative}.md", record["title"], record["description"], page_url(path))
+        page_title = split_header((cache / "manual" / "pages" / path).read_text(encoding="utf-8"))[0]
+        title = page_title or record["title"]
+        entry = Entry(scope, "guides", f"guides/{relative}.md", title, record["description"], page_url(path))
         ctx.placement[path] = entry
         entries[scope].append(entry)
 
@@ -413,6 +425,22 @@ def build(cache: Path, scopes_file: Path, skills_dir: Path, only: set[str] | Non
                 return 1
             help_assigned[page_id] = name
     quick_guides = [p for p in help_pages.values() if p["space"] == "QG" and p["id"] not in help_assigned]
+
+    excluded = notes(config.get("excluded_help", {}))
+    covered = notes(config.get("covered_help", {}))
+    known = set(help_pages) | {p["space"] for p in help_pages.values()}
+    for key in [*excluded, *covered]:
+        if key not in known:
+            print(f"scopes.json mentions help page {key}, which was not crawled")
+            return 1
+    statuses = snapshot.classify_help(cache, help_pages, manual_pages, set(help_assigned), excluded, covered)
+    undecided = sorted(i for i, (status, _) in statuses.items() if status == "unclassified")
+    if undecided:
+        print("help.mikrotik.com pages that the manual may not cover (decide in tools/scopes.json):")
+        for page_id in undecided:
+            page = help_pages[page_id]
+            print(f"  {page_id} {page['space']} {page['title']}: {statuses[page_id][1]}")
+        return 1
 
     # 4. write everything
     written: dict[str, int] = {}
@@ -520,13 +548,52 @@ def build(cache: Path, scopes_file: Path, skills_dir: Path, only: set[str] | Non
         if regulatory:
             write(references / "regulatory" / f"{slug}.md", regulatory)
 
-    # 5. indexes
+    # 5. the skill map, then the indexes (which list it)
+    if wanted("routeros-fundamentals"):
+        write_skill_map(skills_dir / "routeros-fundamentals" / "references" / "skill-map.md", scopes)
     for name, scope in scopes.items():
         if not wanted(name):
             continue
         written[name] = write_index(skills_dir / name, scope, entries[name], crawled)
+    if not only:
+        stats = {}
+        for name in scopes:
+            kinds = [e.kind for e in entries[name]]
+            stats[name] = {
+                "files": written[name],
+                "guides": kinds.count("guides"),
+                "cli_menus": kinds.count("cli"),
+                "product_manuals": kinds.count("products"),
+                "help_only_pages": kinds.count("help"),
+                "quick_guides": kinds.count("quick-guides"),
+            }
+        snapshot.write_snapshot(snapshot_path, cache, manifest, help_pages, statuses, scopes, stats)
     print(f"built {sum(written.values())} reference files in {len(written)} skills (documentation crawled {crawled})")
     return 0
+
+
+def cli_label(prefix: str) -> str:
+    return f"`/{prefix.removesuffix('$')}`" + (" (the menu itself)" if prefix.endswith("$") else "")
+
+
+def write_skill_map(path: Path, scopes: dict[str, dict]) -> None:
+    """Write the lookup table from CLI menus and documentation areas to skills."""
+    lines = [
+        "# Skill map: which skill covers which menu",
+        "",
+        "Generated by `tools/build_references.py` from `tools/scopes.json`. A menu belongs to the skill of the longest",
+        "matching prefix; for example `/ip/firewall/filter` belongs to the skill that lists `/ip/firewall`.",
+        "",
+        "## By CLI menu",
+        "",
+        "| CLI menu | Skill |",
+        "| :-- | :-- |",
+    ]
+    rows = sorted((prefix, name) for name, scope in scopes.items() for prefix in scope.get("cli", []))
+    lines += [f"| {cli_label(prefix)} | `{name}` |" for prefix, name in rows]
+    lines += ["", "## By topic", "", "| Skill | Topic |", "| :-- | :-- |"]
+    lines += [f"| `{name}` | {scope['title']} |" for name, scope in sorted(scopes.items())]
+    write(path, "\n".join(lines) + "\n")
 
 
 def write_index(skill_dir: Path, scope: dict, entries: list[Entry], crawled: str) -> int:
@@ -582,9 +649,10 @@ def main() -> int:
     parser.add_argument("--cache", type=Path, default=REPO_ROOT / ".cache")
     parser.add_argument("--scopes", type=Path, default=REPO_ROOT / "tools" / "scopes.json")
     parser.add_argument("--skills", type=Path, default=REPO_ROOT / "skills")
+    parser.add_argument("--snapshot", type=Path, default=REPO_ROOT / "docs-snapshot.json")
     parser.add_argument("--only", nargs="*", help="rebuild only these skills")
     args = parser.parse_args()
-    return build(args.cache, args.scopes, args.skills, set(args.only) if args.only else None)
+    return build(args.cache, args.scopes, args.skills, set(args.only) if args.only else None, args.snapshot)
 
 
 if __name__ == "__main__":

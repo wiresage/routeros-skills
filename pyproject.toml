@@ -8,4 +8,4 @@ extend-exclude = [".cache"]
 select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "PTH"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["htmlmd", "mdx"]
+known-first-party = ["build_references", "check_links", "helpgap", "htmlmd", "mdx", "snapshot"]

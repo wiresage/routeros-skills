@@ -18,9 +18,10 @@ import re
 import sys
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 import build_references as br
 import check_links
-from bs4 import BeautifulSoup
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 WORD = re.compile(r"[A-Za-z][A-Za-z0-9_-]{3,}")
