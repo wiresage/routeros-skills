@@ -39,6 +39,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-network-services](skills/routeros-network-services/SKILL.md) | MikroTik cloud (DDNS, Back To Home, cloud backup, File Share), web proxy, reverse proxy, SOCKS, Socksify, OpenFlow |
 | [routeros-ethernet](skills/routeros-ethernet/SKILL.md) | Ethernet and SFP ports, auto-negotiation, forced mode, FEC, MTU and L2MTU, interface lists, PWR-Line |
 | [routeros-wireless](skills/routeros-wireless/SKILL.md) | Wi-Fi 5/6/7 (wifi package), legacy wireless, CAPsMAN, Nv2, W60G 60 GHz, regulatory, troubleshooting |
+| [routeros-mobile-networking](skills/routeros-mobile-networking/SKILL.md) | LTE and 5G interfaces, APN profiles, dual SIM, eSIM, SMS, GPS, modem troubleshooting |
 
 ## How a skill is laid out
 
