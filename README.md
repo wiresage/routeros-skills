@@ -46,6 +46,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-troubleshooting](skills/routeros-troubleshooting/SKILL.md) | Support output files (supout.rif), reset, recovery, common knowledge-base fixes |
 | [routeros-hardware](skills/routeros-hardware/SKILL.md) | Product manuals, RouterBOARD, PoE, LEDs, ports, SFP, power and regulatory references for MikroTik hardware |
 | [routeros-high-availability](skills/routeros-high-availability/SKILL.md) | VRRP, bonding (LACP), load balancing, failover and redundancy |
+| [routeros-hotspot](skills/routeros-hotspot/SKILL.md) | HotSpot captive portal: setup, user profiles, authentication methods, walled garden, customization |
 
 ## How a skill is laid out
 
