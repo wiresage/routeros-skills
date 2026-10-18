@@ -60,7 +60,7 @@ BGP-signalled VPLS through `/routing/bgp/vpls` (needs iBGP, preferably with rout
 
 ## L3VPN and traffic engineering
 
-MP-BGP VPNv4/VPNv6 over MPLS uses VRFs (`routeros-routing`) and route distinguishers and targets (`route-distinguisher-and-route-target.md`);
+MP-BGP VPNv4/VPNv6 over MPLS uses VRFs (`routeros-routing`) and route distinguishers and targets (the "Route Distinguisher and Route Target" page in `routeros-routing`);
 the BGP side is `/routing/bgp/vpn` (`routeros-bgp`). RSVP-TE tunnels (explicit paths, CSPF, OSPF TE extensions, bandwidth reservation)
 are under `/mpls/traffic-eng` (`traffic-eng.md`). EXP bits can map to queue priorities (`exp-bit-and-mpls-queuing.md`, `routeros-queues`).
 

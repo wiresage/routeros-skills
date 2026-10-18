@@ -99,9 +99,8 @@ new password first.
 | Support portal and consultants | `references/help/registering-in-the-support-portal.md`, `how-to-apply-for-official-mikrotik-consultant.md` |
 | Everything else | `references/INDEX.md` |
 
-The `help/` pages are from the frozen help.mikrotik.com site and some are in Latvian or are older than the manual; the reset procedure is also in
-`routeros-initial-setup/references/guides/getting-started/configuration-management/routeros-configuration-reset.md` and Netinstall problems in
-`routeros-install-upgrade/references/help/problems-with-netinstall.md`.
+The `help/` pages are from the frozen help.mikrotik.com site; some are in Latvian or older than the manual. The reset procedure is documented in `routeros-initial-setup`
+(configuration reset page) and Netinstall problems in `routeros-install-upgrade` (the "Problems with Netinstall" article).
 
 Related skills: `routeros-diagnostics-monitoring`, `routeros-fundamentals`, `routeros-initial-setup`, `routeros-install-upgrade`, `routeros-hardware`,
 `routeros-management-tools`, `routeros-system-utilities`.

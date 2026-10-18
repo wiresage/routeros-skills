@@ -8,7 +8,7 @@ description: Internet of Things features of MikroTik RouterOS 7 (the iot package
 Most features need the extra package `iot` (and `iot-bt-extra` for USB Bluetooth dongles on ARM and ARM64 devices with USB, LE 4.0 or newer; RouterOS 7.18
 and later). Install it as described in `routeros-install-upgrade`, then check `/iot` exists. Hardware matters: Bluetooth chip and GPIO are on
 KNOT-class devices (and RBM33G for GPIO), Modbus needs the RS485 port (KNOT, KNOT LR8G and LR9G kits), LoRa needs an R11e-LR2, LR8 or LR9 mini-PCIe card
-(`routeros-hardware`, product pages in `references/products/` of that skill).
+(`routeros-hardware` has the product manuals and `find_product.py`).
 
 ## MQTT
 
