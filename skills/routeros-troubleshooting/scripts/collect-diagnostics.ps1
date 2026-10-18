@@ -47,6 +47,25 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function Invoke-Native {
+    # Runs an external command and returns its exit code and combined output. Stderr text is collected as plain
+    # text: with ErrorActionPreference Stop, Windows PowerShell 5.1 would turn it into a terminating error.
+    param([string]$FilePath, [string[]]$Arguments)
+    $previous = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $lines = & $FilePath @Arguments 2>&1
+        $code = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $previous
+    }
+    [pscustomobject]@{
+        ExitCode = $code
+        Output   = (($lines | ForEach-Object { "$_" }) -join "`n") -replace "`r", ''
+    }
+}
+
 $commands = @(
     '/system/identity/print'
     '/system/resource/print'
@@ -72,10 +91,8 @@ $safeName = $HostName -replace '[^A-Za-z0-9._-]', '_'
 $file = Join-Path (Resolve-Path -LiteralPath $OutDirectory).Path ("{0}-diag-{1}.txt" -f $safeName, (Get-Date -Format 'yyyyMMdd-HHmmss'))
 
 $sections = foreach ($command in $commands) {
-    $output = & ssh @baseArguments "$User@$HostName" $command 2>&1
-    $failed = $LASTEXITCODE -ne 0
-    $body = (($output | ForEach-Object { "$_" }) -join "`n") -replace "`r", ''
-    [pscustomobject]@{ Header = "### $command"; Body = $body; Failed = $failed }
+    $result = Invoke-Native -FilePath 'ssh' -Arguments ($baseArguments + @("$User@$HostName", $command))
+    [pscustomobject]@{ Header = "### $command"; Body = $result.Output; Failed = ($result.ExitCode -ne 0) }
 }
 
 $failedCount = @($sections | Where-Object { $_.Failed }).Count

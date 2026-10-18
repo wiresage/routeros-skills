@@ -47,6 +47,25 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
+function Invoke-Native {
+    # Runs an external command and returns its exit code and combined output. Stderr text is collected as plain
+    # text: with ErrorActionPreference Stop, Windows PowerShell 5.1 would turn it into a terminating error.
+    param([string]$FilePath, [string[]]$Arguments)
+    $previous = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $lines = & $FilePath @Arguments 2>&1
+        $code = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $previous
+    }
+    [pscustomobject]@{
+        ExitCode = $code
+        Output   = (($lines | ForEach-Object { "$_" }) -join "`n") -replace "`r", ''
+    }
+}
+
 if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
     $host.UI.WriteErrorLine("error: $Path not found")
     exit 2
@@ -58,14 +77,14 @@ $target = "$User@$HostName"
 $remote = 'dryrun-{0}.rsc' -f (Get-Random)
 
 try {
-    & scp -P $Port @options (Resolve-Path -LiteralPath $Path).Path "${target}:$remote" | Out-Null
-    if ($LASTEXITCODE -ne 0) {
+    $upload = Invoke-Native -FilePath 'scp' -Arguments (@('-P', "$Port") + $options + @((Resolve-Path -LiteralPath $Path).Path, "${target}:$remote"))
+    if ($upload.ExitCode -ne 0) {
         $host.UI.WriteErrorLine("error: could not upload $Path (check the host, the user, your SSH key and that SSH is enabled)")
         exit 3
     }
 
-    $lines = & ssh -p $Port @options $target "/import file-name=$remote verbose=yes dry-run" 2>&1
-    $output = (($lines | ForEach-Object { "$_" }) -join "`n") -replace "`r", ''
+    $check = Invoke-Native -FilePath 'ssh' -Arguments (@('-p', "$Port") + $options + @($target, "/import file-name=$remote verbose=yes dry-run"))
+    $output = $check.Output
     if (-not $output) {
         $host.UI.WriteErrorLine('error: the router did not answer')
         exit 3
@@ -81,5 +100,5 @@ try {
 }
 finally {
     # Best effort: the file may not exist when the upload failed.
-    $null = & ssh -p $Port @options $target "/file/remove $remote" 2>&1
+    $null = Invoke-Native -FilePath 'ssh' -Arguments (@('-p', "$Port") + $options + @($target, "/file/remove $remote"))
 }
