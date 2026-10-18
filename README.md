@@ -25,6 +25,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-firewall](skills/routeros-firewall/SKILL.md) | Filter, NAT, mangle and raw rules, connection tracking and FastTrack, address lists, packet flow, IPv6 firewall, hardening recipes |
 | [routeros-queues](skills/routeros-queues/SKILL.md) | Simple queues and queue trees, HTB, PCQ, CAKE and FQ-CoDel, bursts, queue sizes |
 | [routeros-vpn](skills/routeros-vpn/SKILL.md) | WireGuard, L2TP, SSTP, OpenVPN, PPTP, PPPoE, EoIP, GRE, IPIP, 6to4, ZeroTier tunnels |
+| [routeros-ipsec](skills/routeros-ipsec/SKILL.md) | IKEv1/IKEv2, policies, peers and identities, certificates and EAP, road warrior and site-to-site examples, troubleshooting |
 
 ## How a skill is laid out
 
