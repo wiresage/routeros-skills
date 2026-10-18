@@ -15,44 +15,76 @@ They work with Claude Code, Codex, GitHub Copilot and any other agent that reads
 
 ## Skills
 
-Start with `routeros-fundamentals`; it explains the console conventions and points to the other skills.
+### Start here
+
+Read `routeros-fundamentals` first; it explains the console conventions and maps the other skills.
 
 | Skill | Covers |
 | --- | --- |
 | [routeros-fundamentals](skills/routeros-fundamentals/SKILL.md) | CLI syntax, menu hierarchy, safe mode, export and import, v6 versus v7, map of the other skills |
 | [routeros-initial-setup](skills/routeros-initial-setup/SKILL.md) | First configuration, default config, WAN and LAN setup, hardening, backup, export, import, reset |
 | [routeros-install-upgrade](skills/routeros-install-upgrade/SKILL.md) | Upgrade and downgrade, packages, Netinstall, CHR and x86 installation, RouterBOOT, licensing, v7 migration |
+| [routeros-troubleshooting](skills/routeros-troubleshooting/SKILL.md) | Method and symptom-to-skill routing, supout.rif, recovery (reset button, backup bootloader, Netinstall, lost password), triage script |
+
+### Security and access
+
+| Skill | Covers |
+| --- | --- |
 | [routeros-firewall](skills/routeros-firewall/SKILL.md) | Filter, NAT, mangle and raw rules, connection tracking and FastTrack, address lists, packet flow, IPv6 firewall, hardening recipes |
-| [routeros-queues](skills/routeros-queues/SKILL.md) | Simple queues and queue trees, HTB, PCQ, CAKE and FQ-CoDel, bursts, queue sizes |
-| [routeros-vpn](skills/routeros-vpn/SKILL.md) | WireGuard, L2TP, SSTP, OpenVPN, PPTP, PPPoE, EoIP, GRE, IPIP, 6to4, ZeroTier tunnels |
-| [routeros-ipsec](skills/routeros-ipsec/SKILL.md) | IKEv1/IKEv2, policies, peers and identities, certificates and EAP, road warrior and site-to-site examples, troubleshooting |
-| [routeros-certificates](skills/routeros-certificates/SKILL.md) | Certificate templates, signing, import and export, ACME and Let's Encrypt, SCEP, CRL, trust stores |
 | [routeros-users-aaa](skills/routeros-users-aaa/SKILL.md) | Router users and groups, SSH keys, RADIUS client, PPP profiles and secrets, 802.1X |
+| [routeros-certificates](skills/routeros-certificates/SKILL.md) | Certificate templates, signing, import and export, ACME and Let's Encrypt, SCEP, CRL, trust stores |
+| [routeros-management-tools](skills/routeros-management-tools/SKILL.md) | WinBox, WebFig, SSH, serial console, MAC server, RoMON, Quick Set, TR-069, CMR, The Dude, branding |
+| [routeros-api](skills/routeros-api/SKILL.md) | REST API and binary API: least-privilege users, HTTPS, requests, queries, limits, sentences, tags, REST helper script |
+
+### Interfaces and IP services
+
+| Skill | Covers |
+| --- | --- |
+| [routeros-ethernet](skills/routeros-ethernet/SKILL.md) | Ethernet and SFP ports, auto-negotiation, forced mode, FEC, MTU and L2MTU, interface lists, PWR-Line |
+| [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS, CRS switch chips |
+| [routeros-ip-addressing](skills/routeros-ip-addressing/SKILL.md) | IPv4 and IPv6 addresses, pools, ARP, neighbor discovery and RAs, SLAAC, kernel IP settings |
+| [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
+| [routeros-dns](skills/routeros-dns/SKILL.md) | DNS resolver and cache, static entries and forwarders, adlists, DNS over HTTPS, mDNS repeater, DNS update |
+| [routeros-queues](skills/routeros-queues/SKILL.md) | Simple queues and queue trees, HTB, PCQ, CAKE and FQ-CoDel, bursts, queue sizes |
+| [routeros-network-services](skills/routeros-network-services/SKILL.md) | MikroTik cloud (DDNS, Back To Home, cloud backup, File Share), web proxy, reverse proxy, SOCKS, Socksify, OpenFlow |
+
+### Routing, tunnels and redundancy
+
+| Skill | Covers |
+| --- | --- |
 | [routeros-routing](skills/routeros-routing/SKILL.md) | Static routes, routing tables and rules, policy routing, VRF, route filters, ECMP, nexthop lookup, RIP, IS-IS, BFD, multicast, v6 to v7 routing migration |
 | [routeros-ospf](skills/routeros-ospf/SKILL.md) | OSPFv2 and OSPFv3 instances, areas, interface templates, redistribution, neighbours, area types |
 | [routeros-bgp](skills/routeros-bgp/SKILL.md) | BGP connections, templates and sessions, filters, route reflectors, roles and route-leak prevention, RPKI, EVPN |
 | [routeros-mpls](skills/routeros-mpls/SKILL.md) | MPLS switching, LDP, VPLS, traffic engineering, MPLS MTU and L3VPN pointers |
-| [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS, CRS switch chips |
-| [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
-| [routeros-dns](skills/routeros-dns/SKILL.md) | DNS resolver and cache, static entries and forwarders, adlists, DNS over HTTPS, mDNS repeater, DNS update |
-| [routeros-ip-addressing](skills/routeros-ip-addressing/SKILL.md) | IPv4 and IPv6 addresses, pools, ARP, neighbor discovery and RAs, SLAAC, kernel IP settings |
-| [routeros-network-services](skills/routeros-network-services/SKILL.md) | MikroTik cloud (DDNS, Back To Home, cloud backup, File Share), web proxy, reverse proxy, SOCKS, Socksify, OpenFlow |
-| [routeros-ethernet](skills/routeros-ethernet/SKILL.md) | Ethernet and SFP ports, auto-negotiation, forced mode, FEC, MTU and L2MTU, interface lists, PWR-Line |
+| [routeros-vpn](skills/routeros-vpn/SKILL.md) | WireGuard, L2TP, SSTP, OpenVPN, PPTP, PPPoE, EoIP, GRE, IPIP, 6to4, ZeroTier tunnels |
+| [routeros-ipsec](skills/routeros-ipsec/SKILL.md) | IKEv1/IKEv2, policies, peers and identities, certificates and EAP, road warrior and site-to-site examples, troubleshooting |
+| [routeros-high-availability](skills/routeros-high-availability/SKILL.md) | VRRP, bonding (LACP), load balancing, failover and redundancy |
+
+### Wireless, mobile and access networks
+
+| Skill | Covers |
+| --- | --- |
 | [routeros-wireless](skills/routeros-wireless/SKILL.md) | Wi-Fi 5/6/7 (wifi package), legacy wireless, CAPsMAN, Nv2, W60G 60 GHz, regulatory, troubleshooting |
 | [routeros-mobile-networking](skills/routeros-mobile-networking/SKILL.md) | LTE and 5G interfaces, APN profiles, dual SIM, eSIM, SMS, GPS, modem troubleshooting |
-| [routeros-management-tools](skills/routeros-management-tools/SKILL.md) | WinBox, WebFig, SSH, serial console, MAC server, RoMON, Quick Set, TR-069, CMR, The Dude, branding |
-| [routeros-system-utilities](skills/routeros-system-utilities/SKILL.md) | Clock and NTP, scheduler, services, device mode, files, fetch, email, identity, neighbor discovery, UPS, TFTP, Wake on LAN |
-| [routeros-diagnostics-monitoring](skills/routeros-diagnostics-monitoring/SKILL.md) | Logging, SNMP, Netwatch, ping and traceroute, torch, sniffer, bandwidth test, traffic flow, graphing, health, watchdog |
-| [routeros-troubleshooting](skills/routeros-troubleshooting/SKILL.md) | Support output files (supout.rif), reset, recovery, common knowledge-base fixes |
-| [routeros-hardware](skills/routeros-hardware/SKILL.md) | Product manuals, RouterBOARD, PoE, LEDs, ports, SFP, power and regulatory references for MikroTik hardware |
-| [routeros-high-availability](skills/routeros-high-availability/SKILL.md) | VRRP, bonding (LACP), load balancing, failover and redundancy |
 | [routeros-hotspot](skills/routeros-hotspot/SKILL.md) | HotSpot captive portal: setup, user profiles, authentication methods, walled garden, customization |
 | [routeros-user-manager](skills/routeros-user-manager/SKILL.md) | User Manager RADIUS and billing server: routers, users, profiles, limitations, payments |
-| [routeros-iot](skills/routeros-iot/SKILL.md) | Internet of Things: MQTT broker and publisher, Bluetooth, LoRa, Modbus, GPIO, Wiliot |
+
+### Operations and automation
+
+| Skill | Covers |
+| --- | --- |
+| [routeros-system-utilities](skills/routeros-system-utilities/SKILL.md) | Clock and NTP, scheduler, services, device mode, files, fetch, email, identity, neighbor discovery, UPS, TFTP, Wake on LAN |
+| [routeros-diagnostics-monitoring](skills/routeros-diagnostics-monitoring/SKILL.md) | Logging, SNMP, Netwatch, ping and traceroute, torch, sniffer, bandwidth test, traffic flow, graphing, health, watchdog |
+| [routeros-scripting](skills/routeros-scripting/SKILL.md) | Script language, pitfalls, permissions and jobs, events that run scripts, dry-run checker for .rsc files |
+
+### Hardware, storage and apps
+
+| Skill | Covers |
+| --- | --- |
+| [routeros-hardware](skills/routeros-hardware/SKILL.md) | 246 product manuals with a search script, model naming, RouterBOOT, PoE, LEDs, ports, USB, SFP modules, grounding, pre-RMA checklist |
 | [routeros-storage](skills/routeros-storage/SKILL.md) | Disks, mount points, RAID, Btrfs, encryption, SMB, NFS, iSCSI, NVMe over TCP, SSHFS, rsync, DLNA |
 | [routeros-containers](skills/routeros-containers/SKILL.md) | Containers (Docker images), veth networking, mounts, env lists, resource limits and the /app catalog |
-| [routeros-scripting](skills/routeros-scripting/SKILL.md) | Script syntax, variables, operators, loops, functions, events, fetch and system script reference |
-| [routeros-api](skills/routeros-api/SKILL.md) | REST API and binary API: users, HTTPS, requests, queries, limits, sentences, tags |
+| [routeros-iot](skills/routeros-iot/SKILL.md) | MQTT client, Bluetooth, GPIO, Modbus, LoRaWAN gateways, Wiliot |
 
 ## How a skill is laid out
 

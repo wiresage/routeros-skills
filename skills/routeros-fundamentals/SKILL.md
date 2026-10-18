@@ -86,4 +86,16 @@ Export does not contain user passwords, installed certificates, SSH keys, or the
 | Every file in this skill | `references/INDEX.md` |
 | Single commands such as `/import`, `/password`, `/undo`, `/safe-mode` | `references/cli/` |
 
+## Skills by topic
+
+| Topic | Skills |
+| --- | --- |
+| Start | `routeros-initial-setup`, `routeros-install-upgrade`, `routeros-troubleshooting` |
+| Security and access | `routeros-firewall`, `routeros-users-aaa`, `routeros-certificates`, `routeros-management-tools`, `routeros-api` |
+| Interfaces and IP services | `routeros-ethernet`, `routeros-bridging-switching`, `routeros-ip-addressing`, `routeros-dhcp`, `routeros-dns`, `routeros-queues`, `routeros-network-services` |
+| Routing, tunnels, redundancy | `routeros-routing`, `routeros-ospf`, `routeros-bgp`, `routeros-mpls`, `routeros-vpn`, `routeros-ipsec`, `routeros-high-availability` |
+| Wireless and access networks | `routeros-wireless`, `routeros-mobile-networking`, `routeros-hotspot`, `routeros-user-manager` |
+| Operations and automation | `routeros-system-utilities`, `routeros-diagnostics-monitoring`, `routeros-scripting` |
+| Hardware, storage, apps | `routeros-hardware`, `routeros-storage`, `routeros-containers`, `routeros-iot` |
+
 Related skills: `routeros-initial-setup` (first configuration, backup, reset), `routeros-scripting` (the scripting language), `routeros-firewall`, `routeros-ip-addressing`, `routeros-api` (REST and API access).
