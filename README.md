@@ -33,6 +33,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-bgp](skills/routeros-bgp/SKILL.md) | BGP connections, templates and sessions, filters, route reflectors, roles and route-leak prevention, RPKI, EVPN |
 | [routeros-mpls](skills/routeros-mpls/SKILL.md) | MPLS switching, LDP, VPLS, traffic engineering, MPLS MTU and L3VPN pointers |
 | [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS, CRS switch chips |
+| [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
 
 ## How a skill is laid out
 
