@@ -41,6 +41,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-wireless](skills/routeros-wireless/SKILL.md) | Wi-Fi 5/6/7 (wifi package), legacy wireless, CAPsMAN, Nv2, W60G 60 GHz, regulatory, troubleshooting |
 | [routeros-mobile-networking](skills/routeros-mobile-networking/SKILL.md) | LTE and 5G interfaces, APN profiles, dual SIM, eSIM, SMS, GPS, modem troubleshooting |
 | [routeros-management-tools](skills/routeros-management-tools/SKILL.md) | WinBox, WebFig, SSH, serial console, MAC server, RoMON, Quick Set, TR-069, CMR, The Dude, branding |
+| [routeros-system-utilities](skills/routeros-system-utilities/SKILL.md) | Clock and NTP, scheduler, services, device mode, files, fetch, email, identity, neighbor discovery, UPS, TFTP, Wake on LAN |
 
 ## How a skill is laid out
 
