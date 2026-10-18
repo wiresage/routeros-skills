@@ -22,6 +22,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-fundamentals](skills/routeros-fundamentals/SKILL.md) | CLI syntax, menu hierarchy, safe mode, export and import, v6 versus v7, map of the other skills |
 | [routeros-initial-setup](skills/routeros-initial-setup/SKILL.md) | First configuration, default config, WAN and LAN setup, hardening, backup, export, import, reset |
 | [routeros-install-upgrade](skills/routeros-install-upgrade/SKILL.md) | Upgrade and downgrade, packages, Netinstall, CHR and x86 installation, RouterBOOT, licensing, v7 migration |
+| [routeros-firewall](skills/routeros-firewall/SKILL.md) | Filter, NAT, mangle and raw rules, connection tracking and FastTrack, address lists, packet flow, IPv6 firewall, hardening recipes |
 
 ## How a skill is laid out
 
