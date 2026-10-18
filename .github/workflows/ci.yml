@@ -37,6 +37,9 @@ jobs:
       - name: Check root files, README skills table and prose style
         run: python tools/check_repo.py
 
+      - name: Check that property names used in the skills exist in the documentation
+        run: python tools/check_properties.py
+
   python:
     name: Lint Python
     runs-on: ubuntu-latest

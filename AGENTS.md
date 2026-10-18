@@ -27,6 +27,7 @@ docs-snapshot.json              generated: what the references were built from
 | Validate every skill | `python tools/validate_skills.py` |
 | Check relative links | `python tools/check_links.py` |
 | Check root files, README table, style | `python tools/check_repo.py` |
+| Check that property names in `SKILL.md` exist in the references | `python tools/check_properties.py` |
 | Lint and format Python | `ruff check . && ruff format --check .` |
 | Lint shell scripts | `shellcheck $(git ls-files '*.sh')` |
 | Lint PowerShell | `Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning,Error` |
