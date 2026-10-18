@@ -40,6 +40,9 @@ jobs:
       - name: Check that property names used in the skills exist in the documentation
         run: python tools/check_properties.py
 
+      - name: Check the skills.sh repository page configuration
+        run: python tools/check_skills_sh.py
+
   python:
     name: Lint Python
     runs-on: ubuntu-latest
