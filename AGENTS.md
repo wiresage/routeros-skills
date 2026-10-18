@@ -28,6 +28,8 @@ docs-snapshot.json              generated: what the references were built from
 | Check relative links | `python tools/check_links.py` |
 | Check root files, README table, style | `python tools/check_repo.py` |
 | Check that property names in `SKILL.md` exist in the references | `python tools/check_properties.py` |
+| Check `skills.sh.json` (groups on the skills.sh page) against the skills and the README | `python tools/check_skills_sh.py` |
+| See whether skills.sh lists every skill | `python tools/skills_sh_status.py` |
 | Lint and format Python | `ruff check . && ruff format --check .` |
 | Lint shell scripts | `shellcheck $(git ls-files '*.sh')` |
 | Lint PowerShell | `Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning,Error` |
@@ -72,6 +74,14 @@ Run the validators, the links check and the repository check before every commit
 - PowerShell: runs on Windows PowerShell 5.1 and PowerShell 7, passes PSScriptAnalyzer.
 - Read secrets from environment variables, never from arguments (arguments show up in process lists and shell history).
   Default to read-only operations. Verify TLS certificates unless the user passes an explicit flag.
+
+## skills.sh
+
+skills.sh lists a public repository after someone installs it with `npx skills add`; there is no publish step and no
+token. `skills.sh.json` groups the skills on the repository page and must stay equal to the README topic groups (add a new
+skill to both; `tools/check_skills_sh.py` fails otherwise). `.github/workflows/skills-sh.yml` checks that the real CLI
+installs every skill and, after a merge that changes a `SKILL.md`, runs the install that lists or refreshes the repository.
+Read [docs/skills-sh.md](docs/skills-sh.md) before changing either.
 
 ## Generated files
 
