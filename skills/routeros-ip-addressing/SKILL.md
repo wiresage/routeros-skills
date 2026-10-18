@@ -38,8 +38,9 @@ routes are separate lists, so check both (`/ip/address/print`, `/ip/route/print 
 /interface/set bridge1 arp=reply-only        # only hosts with an ARP entry (static or DHCP-added) are answered
 ```
 
-- Interface `arp` modes: `enabled`, `disabled`, `proxy-arp`, `local-proxy-arp`, `reply-only`. `reply-only` with DHCP `add-arp-for-leases`
-  is a cheap way to restrict a segment to leased hosts; remember static hosts then need entries.
+- Interface `arp` modes: `enabled`, `disabled`, `proxy-arp`, `local-proxy-arp`, `reply-only`. `reply-only` together with `add-arp=yes` on the
+  DHCP server (a permanent ARP entry per bound lease, flag `H`) restricts a segment to leased hosts; hosts with static addresses then
+  need ARP entries of their own.
 - A `published` ARP entry makes the router answer for one address with its own MAC without enabling proxy ARP on the whole interface.
 - Status values: `permanent`, `reachable`, `stale`, `delay`, `probe`, `incomplete`, `failed`. `incomplete` and `failed` mean the host does
   not answer: wrong VLAN or bridge membership, firewall on the host, or wrong subnet.
