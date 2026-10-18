@@ -13,6 +13,14 @@ They work with Claude Code, Codex, GitHub Copilot and any other agent that reads
 > [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp) it is meant to become the knowledge layer of a MikroTik agent.
 > Changes go through pull requests (see [CONTRIBUTING.md](CONTRIBUTING.md)).
 
+## See it work
+
+![A Claude desktop session with the skills installed: the question, the routeros-firewall skill loading and the start of the answer](docs/media/routeros-skills-demo.gif)
+
+*A replay of a real session in the Claude desktop app's Code tab, drawn from its transcript. It is not a screen recording,
+and the answer is shortened.* The skills sit in the project's `.claude/skills` folder (see [Install](#install)); the session
+lists them, loads the one that fits the task and opens the reference files it needs.
+
 ## Skills
 
 ### Start here
