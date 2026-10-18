@@ -20,6 +20,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | Skill | Covers |
 | --- | --- |
 | [routeros-fundamentals](skills/routeros-fundamentals/SKILL.md) | CLI syntax, menu hierarchy, safe mode, export and import, v6 versus v7, map of the other skills |
+| [routeros-initial-setup](skills/routeros-initial-setup/SKILL.md) | First configuration, default config, WAN and LAN setup, hardening, backup, export, import, reset |
 
 ## How a skill is laid out
 
