@@ -1,0 +1,269 @@
+{
+  "_comment": "Maps documentation to skills. 'manual' lists page-path prefixes under manual.mikrotik.com/docs, 'cli' lists CLI menu prefixes, 'help' lists help.mikrotik.com page ids that the manual lacks. The longest matching prefix wins, so a more specific entry moves a subtree to another skill.",
+  "scopes": [
+    {
+      "name": "routeros-fundamentals",
+      "title": "RouterOS fundamentals",
+      "manual": ["introduction", "cli-reference", "management-tools/console"],
+      "cli": ["console", "quit", "redo", "undo", "beep", "blink", "environment", "import", "password", "root", "safe-mode", "special-login", "task", "system/console"]
+    },
+    {
+      "name": "routeros-initial-setup",
+      "title": "Initial setup and configuration management",
+      "manual": [
+        "getting-started$",
+        "getting-started/first-time-configuration",
+        "getting-started/manual-network-setup",
+        "getting-started/securing-your-router",
+        "getting-started/configuration-management"
+      ],
+      "cli": ["system/backup", "system/default-configuration", "system/reset-configuration"],
+      "help": ["8323166"]
+    },
+    {
+      "name": "routeros-install-upgrade",
+      "title": "Installation, upgrade, licensing",
+      "manual": [
+        "getting-started/installation-and-upgrade",
+        "getting-started/routeros-licensing",
+        "getting-started/software-specifications",
+        "getting-started/upgrading-to-v7",
+        "diagnostics-monitoring-and-troubleshooting/downgrading-routeros"
+      ],
+      "cli": ["system/package", "system/license", "system/check-installation", "system/routerboard"],
+      "help": ["161611810", "1409054", "33325062", "130220233"]
+    },
+    {
+      "name": "routeros-management-tools",
+      "title": "Management tools",
+      "manual": ["management-tools"],
+      "cli": ["dude", "cmr", "tr069-client", "tool/mac-server", "tool/mac-telnet", "tool/romon", "ip/ssh", "system/dashboard", "system/ssh", "system/ssh-exec", "system/telnet", "system/serial-terminal"],
+      "help": ["6488069", "6488074"]
+    },
+    {
+      "name": "routeros-system-utilities",
+      "title": "System information and utilities",
+      "manual": ["system-information-and-utilities"],
+      "cli": [
+        "file", "partitions", "system/clock", "system/ntp", "system/ptp", "system/identity", "system/scheduler", "system/note",
+        "system/ups", "system/device-mode", "system/history", "system/reboot", "system/shutdown", "ip/service", "ip/neighbor",
+        "ip/packing", "ip/tftp", "tool/e-mail", "tool/fetch", "tool/wol"
+      ],
+      "help": ["35946519"]
+    },
+    {
+      "name": "routeros-diagnostics-monitoring",
+      "title": "Diagnostics and monitoring",
+      "manual": ["diagnostics-monitoring-and-troubleshooting"],
+      "cli": [
+        "log", "snmp", "ip/traffic-flow", "interface/detect-internet", "interface/monitor-traffic", "system/health", "system/logging",
+        "system/resource", "system/rtrace", "system/watchdog", "tool/apptraffic", "tool/bandwidth-server", "tool/bandwidth-test",
+        "tool/calea", "tool/flood-ping", "tool/graphing", "tool/ip-scan", "tool/mac-scan", "tool/netwatch", "tool/ping",
+        "tool/ping-speed", "tool/profile", "tool/sniffer", "tool/snmp-get", "tool/snmp-walk", "tool/speed-test", "tool/torch",
+        "tool/traceroute", "tool/traffic-generator", "tool/traffic-monitor"
+      ]
+    },
+    {
+      "name": "routeros-troubleshooting",
+      "title": "Troubleshooting and support",
+      "manual": ["getting-started/supout-rif"],
+      "cli": ["system/sup-output"],
+      "help": ["285147143", "32702649", "8978686", "8323179", "8323160", "5210119", "240156678", "328274", "36470812"]
+    },
+    {
+      "name": "routeros-hardware",
+      "title": "Hardware and product manuals",
+      "manual": ["hardware"],
+      "cli": ["lcd", "port", "system/leds", "interface/ethernet/poe"],
+      "help": ["19136769", "12484676", "181338171", "41680915", "61046813"],
+      "hardware": true
+    },
+    {
+      "name": "routeros-ethernet",
+      "title": "Ethernet and wired interfaces",
+      "manual": ["wired-connections", "hardware/mtu-in-routeros"],
+      "cli": ["interface$", "interface/ethernet", "interface/list", "interface/pwr-line", "interface/reset-counters", "interface/blink"],
+      "help": ["47579180"]
+    },
+    {
+      "name": "routeros-wireless",
+      "title": "Wireless, Wi-Fi and CAPsMAN",
+      "manual": ["wireless"],
+      "cli": ["interface/wifi", "interface/wireless", "caps-man", "interface/w60g", "interface/mesh", "system/regulatory"],
+      "help": ["228655144", "280657934"]
+    },
+    {
+      "name": "routeros-mobile-networking",
+      "title": "Mobile networking (LTE, 5G, GPS, SMS)",
+      "manual": ["mobile-networking"],
+      "cli": ["interface/lte", "system/gps", "tool/sms"],
+      "help": ["30146629", "8323170", "8323152"]
+    },
+    {
+      "name": "routeros-bridging-switching",
+      "title": "Bridging, VLAN and switching",
+      "manual": ["bridging-and-switching"],
+      "cli": ["interface/bridge", "interface/vlan", "interface/macsec", "interface/macvlan", "interface/vxlan", "interface/ethernet/switch", "system/swos"],
+      "help": ["37224456"]
+    },
+    {
+      "name": "routeros-ip-addressing",
+      "title": "IP addressing, pools and IPv6 basics",
+      "manual": ["getting-started/networking-fundamentals"],
+      "cli": ["ip/address", "ip/arp", "ip/pool", "ip/settings", "ipv6/address", "ipv6/pool", "ipv6/nd", "ipv6/neighbor", "ipv6/settings"],
+      "help": ["129531938"]
+    },
+    {
+      "name": "routeros-dhcp",
+      "title": "DHCP and DHCPv6",
+      "manual": ["network-management/dhcp"],
+      "cli": ["ip/dhcp-client", "ip/dhcp-relay", "ip/dhcp-server", "ipv6/dhcp-client", "ipv6/dhcp-relay", "ipv6/dhcp-server"]
+    },
+    {
+      "name": "routeros-dns",
+      "title": "DNS",
+      "manual": ["network-management/dns", "diagnostics-monitoring-and-troubleshooting/dynamic-dns"],
+      "cli": ["ip/dns", "tool/dns-update"]
+    },
+    {
+      "name": "routeros-network-services",
+      "title": "Cloud, proxy, SOCKS and OpenFlow",
+      "manual": ["network-management"],
+      "cli": ["ip/cloud", "ip/proxy", "ip/reverse-proxy", "ip/socks", "ip/socksify", "openflow"]
+    },
+    {
+      "name": "routeros-routing",
+      "title": "Routing, VRF and policy routing",
+      "manual": ["user-guides", "user-guides/routing-and-networking-protocols"],
+      "cli": ["routing", "ip/route", "ip/vrf", "ipv6/route"],
+      "help": ["328084", "28606515", "127369252"]
+    },
+    {
+      "name": "routeros-ospf",
+      "title": "OSPF",
+      "manual": ["user-guides/routing-and-networking-protocols/unicast/ospf"],
+      "cli": ["routing/ospf"]
+    },
+    {
+      "name": "routeros-bgp",
+      "title": "BGP, RPKI and EVPN",
+      "manual": [
+        "user-guides/routing-and-networking-protocols/unicast/bgp",
+        "user-guides/routing-and-networking-protocols/unicast/rpki",
+        "user-guides/routing-and-networking-protocols/unicast/evpn"
+      ],
+      "cli": ["routing/bgp", "routing/rpki"]
+    },
+    {
+      "name": "routeros-mpls",
+      "title": "MPLS, LDP and VPLS",
+      "manual": ["user-guides/routing-and-networking-protocols/mpls"],
+      "cli": ["mpls", "interface/vpls"],
+      "help": ["128974876"]
+    },
+    {
+      "name": "routeros-firewall",
+      "title": "Firewall, NAT and connection tracking",
+      "manual": ["firewall-and-quality-of-service"],
+      "cli": ["ip/firewall", "ipv6/firewall", "ip/kid-control", "ip/upnp", "ip/nat-pmp"],
+      "help": ["6488065", "35946536", "154042388"]
+    },
+    {
+      "name": "routeros-queues",
+      "title": "Queues and quality of service",
+      "manual": ["firewall-and-quality-of-service/queues"],
+      "cli": ["queue"]
+    },
+    {
+      "name": "routeros-vpn",
+      "title": "VPN and tunnels",
+      "manual": ["virtual-private-networks"],
+      "cli": [
+        "interface/6to4", "interface/eoip", "interface/eoipv6", "interface/gre", "interface/gre6", "interface/ipip", "interface/ipipv6",
+        "interface/l2tp-client", "interface/l2tp-ether", "interface/l2tp-server", "interface/ovpn-client", "interface/ovpn-server",
+        "interface/ppp-client", "interface/ppp-server", "interface/pppoe-client", "interface/pppoe-server", "interface/pptp-client",
+        "interface/pptp-server", "interface/sstp-client", "interface/sstp-server", "interface/wireguard", "ppp", "zerotier"
+      ],
+      "help": ["242909215"]
+    },
+    {
+      "name": "routeros-ipsec",
+      "title": "IPsec",
+      "manual": ["virtual-private-networks/ipsec"],
+      "cli": ["ip/ipsec", "interface/xfrm", "system/keymat-provider"],
+      "help": ["225312967", "245792775"]
+    },
+    {
+      "name": "routeros-certificates",
+      "title": "Certificates",
+      "manual": ["authentication-authorization-accounting/certificates"],
+      "cli": ["certificate"]
+    },
+    {
+      "name": "routeros-users-aaa",
+      "title": "Users, RADIUS, 802.1X and PPP AAA",
+      "manual": ["authentication-authorization-accounting"],
+      "cli": ["user", "radius", "interface/dot1x", "ppp/aaa"]
+    },
+    {
+      "name": "routeros-user-manager",
+      "title": "User Manager",
+      "manual": ["authentication-authorization-accounting/user-manager"],
+      "cli": ["user-manager"]
+    },
+    {
+      "name": "routeros-hotspot",
+      "title": "HotSpot captive portal",
+      "manual": ["authentication-authorization-accounting/hotspot-captive-portal"],
+      "cli": ["ip/hotspot"]
+    },
+    {
+      "name": "routeros-high-availability",
+      "title": "High availability: VRRP, bonding, load balancing",
+      "manual": ["high-availability-solutions"],
+      "cli": ["interface/bonding", "interface/vrrp"]
+    },
+    {
+      "name": "routeros-iot",
+      "title": "Internet of Things",
+      "manual": ["internet-of-things"],
+      "cli": ["iot"]
+    },
+    {
+      "name": "routeros-storage",
+      "title": "Storage and disks",
+      "manual": ["storage", "hardware/disks"],
+      "cli": ["disk", "ip/smb", "ip/media", "system/check-disk"],
+      "help": ["40992891"]
+    },
+    {
+      "name": "routeros-containers",
+      "title": "Containers and apps",
+      "manual": ["containers"],
+      "cli": ["container", "app", "interface/veth"]
+    },
+    {
+      "name": "routeros-scripting",
+      "title": "Scripting",
+      "manual": ["developer-guides/scripting"],
+      "cli": ["system/script"]
+    },
+    {
+      "name": "routeros-api",
+      "title": "API and REST API",
+      "manual": ["developer-guides"],
+      "cli": []
+    }
+  ],
+  "excluded_help": {
+    "_comment": "help.mikrotik.com pages that are navigation only or not RouterOS documentation. Every other help page is either covered by the manual or imported above.",
+    "328055": "RouterOS knowledge base index",
+    "5210121": "How-to articles index",
+    "328275": "Troubleshooting articles index",
+    "36470790": "LMT LTE18 LV index",
+    "328059": "RouterOS landing page; the site is frozen and points to the manual",
+    "16351628": "LoRa setup index",
+    "16351627": "The Things Network v2 gateway setup; superseded by the manual's The Things Stack guide",
+    "WEB": "General guides space: certification exam proctoring, not RouterOS documentation"
+  }
+}
