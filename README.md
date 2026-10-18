@@ -49,6 +49,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-hotspot](skills/routeros-hotspot/SKILL.md) | HotSpot captive portal: setup, user profiles, authentication methods, walled garden, customization |
 | [routeros-user-manager](skills/routeros-user-manager/SKILL.md) | User Manager RADIUS and billing server: routers, users, profiles, limitations, payments |
 | [routeros-iot](skills/routeros-iot/SKILL.md) | Internet of Things: MQTT broker and publisher, Bluetooth, LoRa, Modbus, GPIO, Wiliot |
+| [routeros-storage](skills/routeros-storage/SKILL.md) | Disks, mount points, RAID, Btrfs, encryption, SMB, NFS, iSCSI, NVMe over TCP, SSHFS, rsync, DLNA |
 
 ## How a skill is laid out
 
