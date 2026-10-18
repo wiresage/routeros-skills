@@ -51,7 +51,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install ruff
-        run: python -m pip install --upgrade pip ruff
+        run: python -m pip install --upgrade pip ruff==0.17.1
 
       - name: ruff check
         run: ruff check .
