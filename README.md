@@ -19,6 +19,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 
 | Skill | Covers |
 | --- | --- |
+| [routeros-fundamentals](skills/routeros-fundamentals/SKILL.md) | CLI syntax, menu hierarchy, safe mode, export and import, v6 versus v7, map of the other skills |
 
 ## How a skill is laid out
 
