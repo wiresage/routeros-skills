@@ -51,6 +51,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-iot](skills/routeros-iot/SKILL.md) | Internet of Things: MQTT broker and publisher, Bluetooth, LoRa, Modbus, GPIO, Wiliot |
 | [routeros-storage](skills/routeros-storage/SKILL.md) | Disks, mount points, RAID, Btrfs, encryption, SMB, NFS, iSCSI, NVMe over TCP, SSHFS, rsync, DLNA |
 | [routeros-containers](skills/routeros-containers/SKILL.md) | Containers (Docker images), veth networking, mounts, env lists, resource limits and the /app catalog |
+| [routeros-scripting](skills/routeros-scripting/SKILL.md) | Script syntax, variables, operators, loops, functions, events, fetch and system script reference |
 
 ## How a skill is laid out
 
