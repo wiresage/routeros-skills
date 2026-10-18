@@ -30,6 +30,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-users-aaa](skills/routeros-users-aaa/SKILL.md) | Router users and groups, SSH keys, RADIUS client, PPP profiles and secrets, 802.1X |
 | [routeros-routing](skills/routeros-routing/SKILL.md) | Static routes, routing tables and rules, policy routing, VRF, route filters, ECMP, nexthop lookup, RIP, IS-IS, BFD, multicast, v6 to v7 routing migration |
 | [routeros-ospf](skills/routeros-ospf/SKILL.md) | OSPFv2 and OSPFv3 instances, areas, interface templates, redistribution, neighbours, area types |
+| [routeros-bgp](skills/routeros-bgp/SKILL.md) | BGP connections, templates and sessions, filters, route reflectors, roles and route-leak prevention, RPKI, EVPN |
 
 ## How a skill is laid out
 
