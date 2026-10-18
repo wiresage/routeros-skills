@@ -1,0 +1,159 @@
+name: skills.sh
+
+# skills.sh (https://skills.sh, by Vercel) has no publish API, no account step and no token for publishers. A repository
+# is listed after someone installs it with the `skills` CLI, which reports the install anonymously; skills.sh then reads
+# the skills (and skills.sh.json) from the public GitHub repository. Details: docs/skills-sh.md.
+#
+# compatibility  Every pull request and push: proves the real CLI can discover and install every skill and that
+#                skills.sh.json is valid. Telemetry is switched off, so nothing is reported.
+# publish        After a merge that changes a SKILL.md or skills.sh.json (and on manual dispatch): runs the same CLI
+#                install against the public repository with telemetry ON, which is what lists or refreshes it, and then
+#                checks the public skills.sh page. The CLI marks installs from CI as such (ci=1); this workflow does not
+#                hide that. If the page does not show the skills, run the install once from your own shell
+#                (docs/skills-sh.md, "If CI installs are not enough").
+#
+# No secrets are used. The built-in GITHUB_TOKEN has read access to the repository contents and nothing else.
+
+on:
+  pull_request:
+    branches: ["master"]
+    paths:
+      - "skills/*/SKILL.md"
+      - "skills.sh.json"
+      - "tools/check_skills_sh.py"
+      - "tools/skills_sh_status.py"
+      - ".github/workflows/skills-sh.yml"
+  push:
+    branches: ["master"]
+    paths:
+      - "skills/*/SKILL.md"
+      - "skills.sh.json"
+      - ".github/workflows/skills-sh.yml"
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Install from GitHub with telemetry on (lists or refreshes the repository on skills.sh)"
+        type: boolean
+        default: true
+      require_listing:
+        description: "Fail the run if the skills are still not on skills.sh after waiting"
+        type: boolean
+        default: false
+      wait_minutes:
+        description: "How long to wait for the skills.sh page to show the skills"
+        type: number
+        default: 10
+
+permissions:
+  contents: read
+
+env:
+  # Pinned: a new CLI release can change discovery rules or telemetry. Raise it deliberately in a pull request.
+  SKILLS_CLI: "skills@1.7.2"
+  # The CLI refuses to run on a Node older than 22.20.
+  NODE_VERSION: "24"
+  # Nothing in this workflow needs install scripts of the CLI's dependencies.
+  NPM_CONFIG_IGNORE_SCRIPTS: "true"
+
+jobs:
+  compatibility:
+    name: CLI can discover and install every skill
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: skills.sh.json is valid and matches the skills and the README groups
+        run: python3 tools/check_skills_sh.py
+
+      - name: The CLI discovers every skill folder
+        env:
+          DISABLE_TELEMETRY: "1"
+          DO_NOT_TRACK: "1"
+          NO_COLOR: "1"
+        run: |
+          # The CLI colors its output on CI runners; strip the escape sequences before reading the count.
+          listing="$(npx --yes "$SKILLS_CLI" add . --list 2>&1 | sed 's/\x1b\[[0-9;?]*[A-Za-z]//g')"
+          printf '%s\n' "$listing"
+          found="$(printf '%s\n' "$listing" | sed -n 's/.*Found \([0-9][0-9]*\) skills*.*/\1/p' | tail -n 1)"
+          expected="$(find skills -mindepth 1 -maxdepth 1 -type d | wc -l)"
+          echo "CLI found ${found:-none}, repository has $expected"
+          test "${found:-0}" -eq "$expected"
+
+      - name: A copy install gives byte-identical skills
+        env:
+          DISABLE_TELEMETRY: "1"
+          DO_NOT_TRACK: "1"
+        run: |
+          project="$RUNNER_TEMP/consumer"
+          mkdir -p "$project"
+          cd "$project"
+          npx --yes "$SKILLS_CLI" add "$GITHUB_WORKSPACE" -a claude-code -s '*' --copy -y
+          failed=0
+          for dir in "$GITHUB_WORKSPACE"/skills/*/; do
+            name="$(basename "$dir")"
+            if ! diff -r "$dir" ".claude/skills/$name" > /dev/null; then
+              echo "::error title=Installed copy differs::$name is not identical after 'skills add'"
+              failed=1
+            fi
+          done
+          test "$(ls .claude/skills | wc -l)" -eq "$(ls "$GITHUB_WORKSPACE/skills" | wc -l)"
+          exit "$failed"
+
+  publish:
+    name: Install from GitHub with telemetry (lists or refreshes the repository)
+    needs: compatibility
+    # Never from forks or pull requests: only the real repository registers itself.
+    if: >-
+      github.repository == 'wiresage/routeros-skills' &&
+      (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish))
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: skills-sh-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install the public repository (telemetry on, reported as a CI install)
+        run: |
+          project="$RUNNER_TEMP/registry-install"
+          mkdir -p "$project"
+          cd "$project"
+          npx --yes "$SKILLS_CLI" add "$GITHUB_REPOSITORY" -a claude-code -s '*' --copy -y
+
+      - name: Check that skills.sh shows the skills
+        env:
+          REQUIRE_LISTING: ${{ inputs.require_listing }}
+          WAIT_MINUTES: ${{ inputs.wait_minutes || 10 }}
+        run: |
+          set +e
+          python3 tools/skills_sh_status.py --timeout "$((WAIT_MINUTES * 60))" --interval 30 | tee status.txt
+          code="${PIPESTATUS[0]}"
+          set -e
+          {
+            echo "### skills.sh listing"
+            echo
+            echo '```text'
+            tail -n 3 status.txt
+            echo '```'
+            echo
+            if [ "$code" -eq 0 ]; then
+              echo "Page: https://www.skills.sh/$GITHUB_REPOSITORY"
+            else
+              echo "The page does not show every skill yet. skills.sh may need time to process the install, and it may ignore installs reported from CI."
+              echo "Run the install once from your own shell with telemetry on (see docs/skills-sh.md) and re-run this workflow."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$code" -ne 0 ]; then
+            echo "::warning title=Not listed on skills.sh yet::tools/skills_sh_status.py exited with $code. See the job summary."
+            if [ "$REQUIRE_LISTING" = "true" ]; then exit "$code"; fi
+          fi
