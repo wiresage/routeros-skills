@@ -35,6 +35,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS, CRS switch chips |
 | [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
 | [routeros-dns](skills/routeros-dns/SKILL.md) | DNS resolver and cache, static entries and forwarders, adlists, DNS over HTTPS, mDNS repeater, DNS update |
+| [routeros-ip-addressing](skills/routeros-ip-addressing/SKILL.md) | IPv4 and IPv6 addresses, pools, ARP, neighbor discovery and RAs, SLAAC, kernel IP settings |
 
 ## How a skill is laid out
 
