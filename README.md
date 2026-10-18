@@ -9,9 +9,9 @@ references let it look up the exact command, property or procedure instead of gu
 The skills use only the portable Agent Skills format: a `name` and a `description` in the front matter, then Markdown.
 They work with Claude Code, Codex, GitHub Copilot and any other agent that reads `SKILL.md` folders.
 
-> Status: private, awaiting review. It is meant to become a public repository of the `wiresage` organization and, with
-> [routeros-lsp](https://github.com/wiresage/routeros-lsp) and [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp), the
-> knowledge layer of a MikroTik agent.
+> Status: public. Together with [routeros-lsp](https://github.com/wiresage/routeros-lsp) and
+> [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp) it is meant to become the knowledge layer of a MikroTik agent.
+> Changes go through pull requests (see [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## Skills
 
