@@ -1,0 +1,89 @@
+# routeros-skills
+
+Agent skills that teach AI coding agents how to work with MikroTik RouterOS.
+
+Each skill is a folder with a `SKILL.md` (short, task-oriented instructions) and a `references/` folder that holds the
+official documentation for that area as plain Markdown. The instructions tell an agent what to do and what to avoid; the
+references let it look up the exact command, property or procedure instead of guessing.
+
+The skills use only the portable Agent Skills format: a `name` and a `description` in the front matter, then Markdown.
+They work with Claude Code, Codex, GitHub Copilot and any other agent that reads `SKILL.md` folders.
+
+> Status: private, awaiting review. It is meant to become a public repository of the `wiresage` organization and, with
+> [routeros-lsp](https://github.com/wiresage/routeros-lsp) and [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp), the
+> knowledge layer of a MikroTik agent.
+
+## Skills
+
+Start with `routeros-fundamentals`; it explains the console conventions and points to the other skills.
+
+| Skill | Covers |
+| --- | --- |
+
+## How a skill is laid out
+
+```text
+skills/<name>/
+  SKILL.md        instructions: when to use it, workflow, recipes, pitfalls, where to look
+  scripts/        optional shell, PowerShell or Python helpers (only when they add value)
+  references/     the documentation for this area
+    INDEX.md      what is inside, one line per file (start here)
+    guides/       narrative pages of the manual, same path as on manual.mikrotik.com
+    cli/          the CLI reference; one file per menu, including its commands
+    products/     hardware manuals (routeros-hardware only)
+    help/         pages that exist only on help.mikrotik.com
+```
+
+An agent loads only the `name` and `description` of every skill, reads `SKILL.md` when a task matches, and opens a reference
+file only when it needs that detail. Keep that in mind when you write or review a skill: `SKILL.md` should be enough to do
+the common task correctly, and the references should be enough to do the rare one.
+
+## Install
+
+Skills are plain folders, so installing means copying or linking them into the place your agent reads skills from. The
+installers do that for you:
+
+```bash
+scripts/install-skills.sh --target ~/.claude/skills            # every skill
+scripts/install-skills.sh --target .agents/skills routeros-firewall routeros-vpn   # selected skills
+```
+
+```powershell
+scripts/install-skills.ps1 -Target "$HOME\.claude\skills"
+```
+
+Common locations (check your agent's documentation, they change): Claude Code `.claude/skills/` or `~/.claude/skills/`,
+Codex `.agents/skills/`, GitHub Copilot `.github/skills/`. Use `--link` (`-Link`) to symlink instead of copy so that a
+`git pull` updates the installed skills.
+
+## Where the content comes from
+
+| Source | Used for |
+| --- | --- |
+| [manual.mikrotik.com](https://manual.mikrotik.com) | The primary source: every page in its `llms.txt` index (narrative guides and the CLI reference) and the hardware manuals |
+| [help.mikrotik.com/docs](https://help.mikrotik.com/docs) | The older Confluence documentation, which MikroTik has frozen. Used only for pages the manual does not have: quick guides, a few user manuals, knowledge-base articles and a handful of concept pages |
+
+The snapshot date and the page counts are in [docs-snapshot.json](docs-snapshot.json). The crawl, the conversion to
+Markdown and the checks that every page arrived complete are part of this repository (see [CONTRIBUTING.md](CONTRIBUTING.md)),
+so the snapshot can be refreshed when MikroTik updates the manual.
+
+Not included: the manual's blog and its documentation change log (they are not RouterOS documentation), tag listing pages
+(they only repeat links), pictures (each reference has a `Source:` link to the page with the figures), the translations in
+the quick guides (the English text is complete), and one help page about exam proctoring. Details are in `docs-snapshot.json`.
+
+## Related projects
+
+- [routeros-lsp](https://github.com/wiresage/routeros-lsp): language server for RouterOS scripts. Use it to check `.rsc` files
+  before they reach a router.
+- [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp): MCP server that lets an agent read and change a real device.
+
+The skills in this repository are written so that they also work when the agent has no live access: they tell it which
+commands to propose and how to verify them.
+
+## License
+
+The instructions, scripts and tools in this repository are available under the [MIT License](LICENSE).
+The documentation copied into the `references/` folders belongs to MikroTik; see [NOTICE.md](NOTICE.md).
+
+See also [AGENTS.md](AGENTS.md) (for agents that work on this repository), [CONTRIBUTING.md](CONTRIBUTING.md) and
+[SECURITY.md](SECURITY.md).
