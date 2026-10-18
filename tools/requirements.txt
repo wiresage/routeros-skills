@@ -1,0 +1,5 @@
+# Only needed to refresh the documentation snapshot (crawl, build, verify).
+# CI and everyday editing need nothing beyond the Python standard library and ruff.
+beautifulsoup4==4.15.0
+lxml==6.1.3
+markdownify==1.2.3
