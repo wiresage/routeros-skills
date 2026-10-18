@@ -27,6 +27,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-vpn](skills/routeros-vpn/SKILL.md) | WireGuard, L2TP, SSTP, OpenVPN, PPTP, PPPoE, EoIP, GRE, IPIP, 6to4, ZeroTier tunnels |
 | [routeros-ipsec](skills/routeros-ipsec/SKILL.md) | IKEv1/IKEv2, policies, peers and identities, certificates and EAP, road warrior and site-to-site examples, troubleshooting |
 | [routeros-certificates](skills/routeros-certificates/SKILL.md) | Certificate templates, signing, import and export, ACME and Let's Encrypt, SCEP, CRL, trust stores |
+| [routeros-users-aaa](skills/routeros-users-aaa/SKILL.md) | Router users and groups, SSH keys, RADIUS client, PPP profiles and secrets, 802.1X |
 
 ## How a skill is laid out
 
