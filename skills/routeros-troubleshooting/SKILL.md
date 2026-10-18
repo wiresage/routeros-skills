@@ -72,6 +72,10 @@ file is encoded and opened with the Supout.rif viewer in your MikroTik account.
 | Need to reinstall | Netinstall: hold reset while powering on until the LED sequence (blinking, solid, off) completes, then run Netinstall on a PC connected directly to the port, same subnet, firewalls off (`routeros-install-upgrade`) |
 | Default password unknown on a new device | Newer models have a factory password on the sticker, the packaging or the quick guide sheet; older ones use `admin` with an empty password. After Netinstall or reset see the same places |
 
+If Protected RouterBOOT is enabled (`/system/routerboard/settings`), the reset button, the RouterBOOT serial menu and Netinstall are all disabled, so
+none of the rows above work without the admin password; the only way out is the emergency reformat described in `routeros-hardware`, which erases
+everything.
+
 Back up with `/export` and a binary backup before a reset (`routeros-initial-setup`). A reset removes users, passwords and the configuration; after it, set a
 new password first.
 
