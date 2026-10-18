@@ -24,6 +24,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-install-upgrade](skills/routeros-install-upgrade/SKILL.md) | Upgrade and downgrade, packages, Netinstall, CHR and x86 installation, RouterBOOT, licensing, v7 migration |
 | [routeros-firewall](skills/routeros-firewall/SKILL.md) | Filter, NAT, mangle and raw rules, connection tracking and FastTrack, address lists, packet flow, IPv6 firewall, hardening recipes |
 | [routeros-queues](skills/routeros-queues/SKILL.md) | Simple queues and queue trees, HTB, PCQ, CAKE and FQ-CoDel, bursts, queue sizes |
+| [routeros-vpn](skills/routeros-vpn/SKILL.md) | WireGuard, L2TP, SSTP, OpenVPN, PPTP, PPPoE, EoIP, GRE, IPIP, 6to4, ZeroTier tunnels |
 
 ## How a skill is laid out
 
