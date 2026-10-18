@@ -28,6 +28,7 @@ Start with `routeros-fundamentals`; it explains the console conventions and poin
 | [routeros-ipsec](skills/routeros-ipsec/SKILL.md) | IKEv1/IKEv2, policies, peers and identities, certificates and EAP, road warrior and site-to-site examples, troubleshooting |
 | [routeros-certificates](skills/routeros-certificates/SKILL.md) | Certificate templates, signing, import and export, ACME and Let's Encrypt, SCEP, CRL, trust stores |
 | [routeros-users-aaa](skills/routeros-users-aaa/SKILL.md) | Router users and groups, SSH keys, RADIUS client, PPP profiles and secrets, 802.1X |
+| [routeros-routing](skills/routeros-routing/SKILL.md) | Static routes, routing tables and rules, policy routing, VRF, route filters, ECMP, nexthop lookup, RIP, IS-IS, BFD, multicast, v6 to v7 routing migration |
 
 ## How a skill is laid out
 
