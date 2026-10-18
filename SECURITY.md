@@ -20,7 +20,7 @@ Please do not open a public issue for a security problem. Use GitHub's private v
 repository: **Security tab, Report a vulnerability**. Include the file, what an agent or user would do with it, and the
 impact. If that option is not available, contact a maintainer of the `wiresage` organization directly.
 
-You can expect an acknowledgement within a few days. Fixes go straight to `master` (the repository has a single branch)
+You can expect an acknowledgement within a few days. Fixes are merged into `master` through a pull request
 and are described in the commit message.
 
 ## Supported versions

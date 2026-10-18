@@ -53,13 +53,16 @@ feat(tools): keep tables inside table cells when converting help pages
 docs: explain how to install the skills for Copilot
 ```
 
-The repository has a single branch, `master`. Maintainers push to it directly. If you are not a maintainer, open a pull
-request from a fork against `master`.
+## Pull requests
+
+Nobody pushes to `master`, maintainers included. Work on a branch (or a fork), open a pull request against `master`,
+describe what changed, why, and how you checked it, and let CI pass. A maintainer merges it. Keep one logical change per
+pull request, with one commit per step.
 
 ## CI
 
-[.github/workflows/ci.yml](.github/workflows/ci.yml) runs on every push to `master` (a merge is a push) and on pull
-requests: skill validation, link and repository checks, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
+[.github/workflows/ci.yml](.github/workflows/ci.yml) runs on every pull request and on every push to `master` (a merge is
+a push): skill validation, link and repository checks, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
 is the health check telling you something broke; fix it before anything else.
 
 ## Reporting problems

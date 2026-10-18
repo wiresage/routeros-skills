@@ -14,8 +14,9 @@ The files under `skills/*/references/` are converted copies of the RouterOS docu
 - Conversion changes the format, not the wording: MDX components become Markdown, links are rewritten, pictures are
   replaced by a `[Figure]` note, and internal numeric enum codes are omitted from the CLI reference.
 
-Before this repository is made public, confirm that MikroTik's terms allow redistributing these copies, or switch the
-references to download-on-demand (`tools/build_references.py` can regenerate them locally from the sources).
+This repository is public, but that does not transfer any rights in MikroTik's documentation. If you represent MikroTik and
+want pages changed or removed, open an issue or contact a maintainer of the `wiresage` organization. The references can also
+be rebuilt locally instead of being shipped (`tools/build_references.py` regenerates them from the sources).
 
 ## Trademarks
 

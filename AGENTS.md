@@ -37,10 +37,14 @@ Run the validators, the links check and the repository check before every commit
 
 ## Git workflow
 
-- One branch: `master`. Push to it directly. Do not create other branches or rewrite pushed history.
+- **Never push to `master`.** Every change goes through a pull request: create a branch from an up-to-date `master`
+  (`feat/<topic>`, `fix/<topic>`, `docs/<topic>`), push the branch, open a PR against `master`, and wait for CI to pass.
+  A maintainer merges; do not merge your own PR unless the maintainer asked you to. Do not rewrite pushed history on `master`.
 - One commit per step of work, using [Conventional Commits](https://www.conventionalcommits.org): `feat(skills): add
   routeros-firewall`, `fix(tools): ...`, `docs: ...`, `ci: ...`, `chore: ...`. Scopes in use: `skills`, `tools`, `scripts`, `ci`.
 - A commit that adds or changes a skill also updates the README skills table so that `check_repo.py` stays green.
+- The PR description says what changed, why, and how it was checked (commands run, scripts tested against a stub or a
+  lab router).
 
 ## Rules for skills
 
