@@ -93,8 +93,7 @@ Nothing. Check against the list of things people usually expect:
 
    Exit status 0 means every skill is on <https://www.skills.sh/wiresage/routeros-skills>; 3 means the repository is not listed yet;
    4 means it is listed but some skills are missing (the grouping and listing can lag behind; run the install again later).
-5. **Add the badge** to the README once `https://skills.sh/b/wiresage/routeros-skills` shows a count instead of "resource not found"
-   (it can lag behind the listing):
+5. **The README badge** links to the page and shows the number of skills it lists:
 
    ```markdown
    [![skills.sh](https://skills.sh/b/wiresage/routeros-skills)](https://skills.sh/wiresage/routeros-skills)

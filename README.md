@@ -9,6 +9,9 @@ references let it look up the exact command, property or procedure instead of gu
 The skills use only the portable Agent Skills format: a `name` and a `description` in the front matter, then Markdown.
 They work with Claude Code, Codex, GitHub Copilot and any other agent that reads `SKILL.md` folders.
 
+[![skills.sh](https://skills.sh/b/wiresage/routeros-skills)](https://skills.sh/wiresage/routeros-skills)
+[Browse and install the skills on skills.sh](https://skills.sh/wiresage/routeros-skills).
+
 > Status: public. Together with [routeros-lsp](https://github.com/wiresage/routeros-lsp) and
 > [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp) it is meant to become the knowledge layer of a MikroTik agent.
 > Changes go through pull requests (see [CONTRIBUTING.md](CONTRIBUTING.md)).
@@ -114,8 +117,8 @@ the common task correctly, and the references should be enough to do the rare on
 
 ## Install
 
-With the [skills CLI](https://github.com/vercel-labs/skills) (Node 22.20 or newer), which also lists this repository on
-[skills.sh](https://skills.sh):
+With the [skills CLI](https://github.com/vercel-labs/skills) (Node 22.20 or newer). This repository is listed on the
+[skills.sh hub](https://skills.sh/wiresage/routeros-skills):
 
 ```bash
 npx skills add wiresage/routeros-skills                                   # choose skills and agents interactively
