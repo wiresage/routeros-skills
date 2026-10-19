@@ -12,9 +12,10 @@ They work with Claude Code, Codex, GitHub Copilot and any other agent that reads
 [![skills.sh](https://skills.sh/b/wiresage/routeros-skills)](https://skills.sh/wiresage/routeros-skills)
 [Browse and install the skills on skills.sh](https://skills.sh/wiresage/routeros-skills).
 
-> Status: public. Together with [routeros-lsp](https://github.com/wiresage/routeros-lsp) and
-> [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp) it is meant to become the knowledge layer of a MikroTik agent.
-> Changes go through pull requests (see [CONTRIBUTING.md](CONTRIBUTING.md)).
+> Status: public. The skills work together with [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp): the agent plans
+> with the skills and inspects or changes the router through the MCP tools (see [Related projects](#related-projects)).
+> With [routeros-lsp](https://github.com/wiresage/routeros-lsp) they are meant to become the knowledge layer of a MikroTik
+> agent. Changes go through pull requests (see [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## See it work
 
@@ -165,6 +166,10 @@ the quick guides (the English text is complete), and one help page about exam pr
 - [routeros-lsp](https://github.com/wiresage/routeros-lsp): language server for RouterOS scripts. Use it to check `.rsc` files
   before they reach a router.
 - [mikrotik-mcp](https://github.com/wiresage/mikrotik-mcp): MCP server that lets an agent read and change a real device.
+  Load it together with the skills and they work well side by side: the skills tell the agent what a safe RouterOS setup
+  looks like and which commands matter, and the MCP tools read the router and apply the change. We tested the two together
+  on a lab router (a read-only firewall audit and one reversible change). The MCP has no tools yet for some things the skills
+  cover, such as `/ip/service` and interface lists, so those steps stay manual.
 
 The skills in this repository are written so that they also work when the agent has no live access: they tell it which
 commands to propose and how to verify them.
