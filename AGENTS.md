@@ -29,6 +29,7 @@ docs-snapshot.json              generated: what the references were built from
 | Check root files, README table, style | `python tools/check_repo.py` |
 | Check that property names in `SKILL.md` exist in the references | `python tools/check_properties.py` |
 | Check `skills.sh.json` (groups on the skills.sh page) against the skills and the README | `python tools/check_skills_sh.py` |
+| Check the Claude plugin manifests, the version rule, root components and file limits | `python tools/check_plugin.py` and `claude plugin validate --strict .` |
 | See whether skills.sh lists every skill | `python tools/skills_sh_status.py` |
 | Lint and format Python | `ruff check . && ruff format --check .` |
 | Lint shell scripts | `shellcheck $(git ls-files '*.sh')` |
@@ -82,6 +83,15 @@ token. `skills.sh.json` groups the skills on the repository page and must stay e
 skill to both; `tools/check_skills_sh.py` fails otherwise). `.github/workflows/skills-sh.yml` checks that the real CLI
 installs every skill and, after a merge that changes a `SKILL.md`, runs the install that lists or refreshes the repository.
 Read [docs/skills-sh.md](docs/skills-sh.md) before changing either.
+
+## Claude plugin
+
+The repository root is a Claude plugin (`.claude-plugin/plugin.json`) and the marketplace `wiresage` (`marketplace.json`, source
+`./`). Everything tracked in git is shipped, and a file or folder at the root that matches a plugin component location is
+loaded, so never add `commands/`, `agents/`, `hooks/`, `bin/`, `.mcp.json`, `settings.json` or `CLAUDE.md` at the root
+(`tools/check_plugin.py` fails if you do). Set the version only in `plugin.json` and bump it when a change should reach
+installed users; keep SKILL.md free of plugin-only variables such as `${CLAUDE_PLUGIN_ROOT}`, so the skills stay portable.
+Read [docs/claude-plugin.md](docs/claude-plugin.md) first.
 
 ## Generated files
 
