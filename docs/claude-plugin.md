@@ -37,6 +37,11 @@ Measured with `claude plugin details routeros-skills` on version 0.1.0:
 - **About 1,200 to 2,500 tokens each time a skill is used**, the `SKILL.md` that loads. Reference files cost more only when the
   agent opens them.
 
+In a test session in the desktop app only 14 of the 34 skills were listed with their description and the other 20 by name
+only, so Claude may not pick those on its own: name the area in the prompt or call the skill, for example
+`/routeros-skills:routeros-bgp`. Splitting the plugin into smaller bundles (for example the seven groups of `skills.sh.json`)
+would help; that is not done.
+
 If that is too much for everyday sessions, install the plugin at project scope only where you work on MikroTik gear, or install
 selected skills with `npx skills add wiresage/routeros-skills -s routeros-firewall routeros-vpn`.
 
@@ -61,6 +66,16 @@ claude plugin tag --push             # creates and pushes the tag
 
 Installed users update with `claude plugin marketplace update wiresage` and `claude plugin update routeros-skills@wiresage`
 (a restart applies it). Without a bump, only people who install fresh get the new files.
+
+## Helper scripts
+
+Skills name their helpers with a path relative to the skill folder (`scripts/find_product.py`), but a session runs in the
+user's project. The skill loader tells Claude the skill's base directory (in the installed plugin it is
+`<plugin cache>/skills/<name>`), and Claude joins the two. This was tested in a real plugin install: `find_product.py` of
+`routeros-hardware` ran from a different working directory and printed its result. The helpers are started with `python` and
+`bash`, so a lost executable bit in the plugin cache does not matter. Keep it that way: do not add `./scripts/x.sh` calls.
+Use no plugin-only variables such as `${CLAUDE_PLUGIN_ROOT}` in a `SKILL.md`; the same skills must work from skills.sh and the
+install scripts.
 
 ## Test a change locally
 
