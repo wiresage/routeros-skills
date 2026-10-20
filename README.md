@@ -118,6 +118,17 @@ the common task correctly, and the references should be enough to do the rare on
 
 ## Install
 
+As a Claude plugin (Claude Code; for Claude desktop, chat and Cowork see [docs/claude-plugin.md](docs/claude-plugin.md)):
+
+```bash
+claude plugin marketplace add wiresage/routeros-skills
+claude plugin install routeros-skills@wiresage
+```
+
+The skills then appear as `/routeros-skills:routeros-firewall` and so on, and updates come with `claude plugin update`.
+All 34 skills add about 5,700 tokens to every session; add `--scope project` to both commands to limit the plugin to one
+project.
+
 With the [skills CLI](https://github.com/vercel-labs/skills) (Node 22.20 or newer). This repository is listed on the
 [skills.sh hub](https://skills.sh/wiresage/routeros-skills):
 

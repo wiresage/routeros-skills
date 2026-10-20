@@ -29,6 +29,7 @@ Refreshing the documentation needs three more packages (`pip install -r tools/re
 | Move a documentation page to another skill | `tools/scopes.json`, then rebuild |
 | Add a helper script | `skills/<name>/scripts/`, and mention it in that skill's `SKILL.md` |
 | Add a skill to the skills.sh page | `skills.sh.json` and the README table, in the same group (see [docs/skills-sh.md](docs/skills-sh.md)) |
+| Release a change to installed Claude plugin users | Bump `version` in `.claude-plugin/plugin.json` in the same pull request (see [docs/claude-plugin.md](docs/claude-plugin.md)) |
 | Add a skill | See "Adding a skill" in [AGENTS.md](AGENTS.md) |
 | Refresh the documentation snapshot | `crawl_manual.py`, `crawl_help.py`, `build_references.py`, `verify_references.py` in `tools/` |
 
@@ -59,6 +60,13 @@ docs: explain how to install the skills for Copilot
 Nobody pushes to `master`, maintainers included. Work on a branch (or a fork), open a pull request against `master`,
 describe what changed, why, and how you checked it, and let CI pass. A maintainer merges it. Keep one logical change per
 pull request, with one commit per step.
+
+## Versions and releases
+
+The repository is also a Claude plugin, and installed users keep their copy until `version` in `.claude-plugin/plugin.json`
+changes. Bump it in the pull request whenever the change should reach them: patch for fixes and refreshed references, minor for
+a new skill or helper, major when a skill is removed or renamed. After the merge a maintainer runs `claude plugin tag --push`
+from an up-to-date `master`, which creates `routeros-skills--vX.Y.Z`. Details: [docs/claude-plugin.md](docs/claude-plugin.md).
 
 ## CI
 
