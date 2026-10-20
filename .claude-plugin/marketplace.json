@@ -1,0 +1,15 @@
+{
+  "name": "wiresage",
+  "description": "Agent skills and tools for MikroTik RouterOS from the wiresage organization",
+  "owner": {
+    "name": "wiresage",
+    "url": "https://github.com/wiresage"
+  },
+  "plugins": [
+    {
+      "name": "routeros-skills",
+      "source": "./",
+      "description": "34 agent skills for MikroTik RouterOS 7 with the official documentation as references"
+    }
+  ]
+}

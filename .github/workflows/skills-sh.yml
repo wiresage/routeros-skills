@@ -20,6 +20,7 @@ on:
     paths:
       - "skills/*/SKILL.md"
       - "skills.sh.json"
+      - ".claude-plugin/**"
       - "tools/check_skills_sh.py"
       - "tools/skills_sh_status.py"
       - ".github/workflows/skills-sh.yml"
