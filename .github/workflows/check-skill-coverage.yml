@@ -1,0 +1,61 @@
+name: Manual drift
+
+# Compares the live manual (https://manual.mikrotik.com) with the snapshot in this repository and writes the result to the
+# job summary and an artifact. Started by hand: Actions, "Manual drift", Run workflow. It never commits, pushes or opens a
+# pull request; a maintainer reviews the report and refreshes the snapshot (docs: docs/skill-coverage.md, CONTRIBUTING.md).
+#
+# What it checks (tools/skill_coverage.py):
+#   * the skill coverage report in docs/skill-coverage.md is current (offline);
+#   * the manual's index (llms.txt) against the pages in the snapshot: pages added, pages removed, and new pages that no
+#     skill in tools/scopes.json would take (the next build would stop on those: exit 1);
+#   * the manual version and the SHA-256 of llms.txt and llms-full.txt against docs/manual.lock.json.
+#
+# Two files are downloaded, both from manual.mikrotik.com and nothing else. No secrets are used and the token can only read
+# the repository.
+
+on:
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: "Fail on any difference, not only on new pages that no skill takes"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    name: Compare the live manual with the snapshot
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Compare the live manual with the snapshot
+        env:
+          STRICT: ${{ inputs.strict }}
+        run: |
+          args=(--check --fetch --report skill-coverage-drift.md --json skill-coverage-drift.json)
+          if [ "$STRICT" = "true" ]; then args+=(--strict); fi
+          set +e
+          python tools/skill_coverage.py "${args[@]}"
+          code=$?
+          set -e
+          if [ -f skill-coverage-drift.md ]; then cat skill-coverage-drift.md >> "$GITHUB_STEP_SUMMARY"; fi
+          exit "$code"
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: skill-coverage-drift
+          path: |
+            skill-coverage-drift.md
+            skill-coverage-drift.json
+          retention-days: 30
+          if-no-files-found: ignore

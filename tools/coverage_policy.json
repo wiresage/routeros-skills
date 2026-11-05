@@ -1,0 +1,4 @@
+{
+  "_comment": "Pages that no SKILL.md should be asked to name, left out of the counts in docs/skill-coverage.md. Each entry needs a skill, a folder (guides, help or cli), a prefix (the path below that folder without .md; an empty prefix means the whole folder) and a reason. An entry that matches nothing is an error.",
+  "excluded": []
+}

@@ -31,6 +31,7 @@ Refreshing the documentation needs three more packages (`pip install -r tools/re
 | Add a skill to the skills.sh page | `skills.sh.json` and the README table, in the same group (see [docs/skills-sh.md](docs/skills-sh.md)) |
 | Release a change to installed Claude plugin users | Bump `version` in `.claude-plugin/plugin.json` in the same pull request (see [docs/claude-plugin.md](docs/claude-plugin.md)) |
 | Add a skill | See "Adding a skill" in [AGENTS.md](AGENTS.md) |
+| Teach a skill more of the manual (see the gaps) | `skills/<name>/SKILL.md`, then `python tools/skill_coverage.py --write` |
 | Refresh the documentation snapshot | `crawl_manual.py`, `crawl_help.py`, `build_references.py`, `verify_references.py` in `tools/` |
 
 ## Quality bar
@@ -68,11 +69,23 @@ changes. Bump it in the pull request whenever the change should reach them: patc
 a new skill or helper, major when a skill is removed or renamed. After the merge a maintainer runs `claude plugin tag --push`
 from an up-to-date `master`, which creates `routeros-skills--vX.Y.Z`. Details: [docs/claude-plugin.md](docs/claude-plugin.md).
 
+## Skill coverage
+
+[docs/skill-coverage.md](docs/skill-coverage.md) shows, for every skill, how much of its `references/` folder its `SKILL.md`
+names. It is generated, and CI fails when it is stale: after you change a `SKILL.md`, `tools/scopes.json` or the references,
+run `python tools/skill_coverage.py --write` and commit the new report. `python tools/skill_coverage.py --list <skill>` lists
+what a skill does not name yet. To compare the snapshot with the live manual, start the *Manual drift* workflow in the
+Actions tab (or run `python tools/skill_coverage.py --fetch`).
+
 ## CI
 
 [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on every pull request and on every push to `master` (a merge is
-a push): skill validation, link and repository checks, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
+a push): skill validation, link and repository checks, the tests of the maintenance tools, the skill coverage report, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
 is the health check telling you something broke; fix it before anything else.
+
+Maintainers can also comment `@claude` on an issue or pull request to ask Claude Code for a review or a change; for a pull
+request it may add a short video explainer on [bisque.today](https://bisque.today/p/wiresage/routeros-skills). How that works
+and what it needs is in [docs/claude-and-bisque.md](docs/claude-and-bisque.md).
 
 ## Reporting problems
 
