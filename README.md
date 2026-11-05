@@ -155,7 +155,9 @@ Codex `.agents/skills/`, GitHub Copilot `.github/skills/`. Use `--link` (`-Link`
 
 The snapshot date and the page counts are in [docs-snapshot.json](docs-snapshot.json). The crawl, the conversion to
 Markdown and the checks that every page arrived complete are part of this repository (see [CONTRIBUTING.md](CONTRIBUTING.md)),
-so the snapshot can be refreshed when MikroTik updates the manual.
+so the snapshot can be refreshed when MikroTik updates the manual. [docs/skill-coverage.md](docs/skill-coverage.md) shows how
+much of each skill's references its `SKILL.md` leads an agent to, and `docs/manual.lock.json` records which manual version the
+snapshot was last compared with.
 
 Not included: the manual's blog and its documentation change log (they are not RouterOS documentation), tag listing pages
 (they only repeat links), pictures (each reference has a `Source:` link to the page with the figures), the translations in

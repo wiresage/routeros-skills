@@ -43,6 +43,12 @@ jobs:
       - name: Check the skills.sh repository page configuration
         run: python tools/check_skills_sh.py
 
+      - name: Run the tests of the maintenance tools
+        run: python -m unittest discover -s tests
+
+      - name: Check that the skill coverage report is current
+        run: python tools/skill_coverage.py --check
+
   python:
     name: Lint Python
     runs-on: ubuntu-latest

@@ -30,6 +30,7 @@ Refreshing the documentation needs three more packages (`pip install -r tools/re
 | Add a helper script | `skills/<name>/scripts/`, and mention it in that skill's `SKILL.md` |
 | Add a skill to the skills.sh page | `skills.sh.json` and the README table, in the same group (see [docs/skills-sh.md](docs/skills-sh.md)) |
 | Add a skill | See "Adding a skill" in [AGENTS.md](AGENTS.md) |
+| Teach a skill more of the manual (see the gaps) | `skills/<name>/SKILL.md`, then `python tools/skill_coverage.py --write` |
 | Refresh the documentation snapshot | `crawl_manual.py`, `crawl_help.py`, `build_references.py`, `verify_references.py` in `tools/` |
 
 ## Quality bar
@@ -60,10 +61,18 @@ Nobody pushes to `master`, maintainers included. Work on a branch (or a fork), o
 describe what changed, why, and how you checked it, and let CI pass. A maintainer merges it. Keep one logical change per
 pull request, with one commit per step.
 
+## Skill coverage
+
+[docs/skill-coverage.md](docs/skill-coverage.md) shows, for every skill, how much of its `references/` folder its `SKILL.md`
+names. It is generated, and CI fails when it is stale: after you change a `SKILL.md`, `tools/scopes.json` or the references,
+run `python tools/skill_coverage.py --write` and commit the new report. `python tools/skill_coverage.py --list <skill>` lists
+what a skill does not name yet. To compare the snapshot with the live manual, start the *Manual drift* workflow in the
+Actions tab (or run `python tools/skill_coverage.py --fetch`).
+
 ## CI
 
 [.github/workflows/ci.yml](.github/workflows/ci.yml) runs on every pull request and on every push to `master` (a merge is
-a push): skill validation, link and repository checks, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
+a push): skill validation, link and repository checks, the tests of the maintenance tools, the skill coverage report, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
 is the health check telling you something broke; fix it before anything else.
 
 ## Reporting problems
