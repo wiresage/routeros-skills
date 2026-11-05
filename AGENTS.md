@@ -22,6 +22,7 @@ tests/                          unit tests of the maintenance tools
 docs/skill-coverage.md          generated: how much of each skill's references its SKILL.md names
 docs/manual.lock.json           generated: the manual version the snapshot was last compared with
 .github/workflows/ci.yml        validation, lint and the post-merge health check
+.github/workflows/claude.yml    @claude on issues and pull requests, plus the Bisque video explainer
 ```
 
 ## Commands
@@ -99,6 +100,14 @@ token. `skills.sh.json` groups the skills on the repository page and must stay e
 skill to both; `tools/check_skills_sh.py` fails otherwise). `.github/workflows/skills-sh.yml` checks that the real CLI
 installs every skill and, after a merge that changes a `SKILL.md`, runs the install that lists or refreshes the repository.
 Read [docs/skills-sh.md](docs/skills-sh.md) before changing either.
+
+## Claude Code and Bisque
+
+`.github/workflows/claude.yml` answers `@claude` comments and, for a pull request review, may publish a short video to
+bisque.today. Every `uses:` is a full commit SHA, and the presenter commit appears twice (the `PRESENTER_COMMIT` variable and
+the `publish` step), so change both together. Claude's shell may run only four subcommands of the presenter script; never
+widen `--allowedTools`, never give the `claude` job's secret to the `publish` job. Read
+[docs/claude-and-bisque.md](docs/claude-and-bisque.md) before changing the workflow.
 
 ## Generated files
 
