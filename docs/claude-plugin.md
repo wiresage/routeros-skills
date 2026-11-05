@@ -21,7 +21,7 @@ claude plugin install routeros-skills@wiresage
 
 Or inside a Claude Code session: `/plugin marketplace add wiresage/routeros-skills`, then `/plugin install routeros-skills@wiresage`.
 The skills appear namespaced by the plugin, for example `/routeros-skills:routeros-firewall`, and Claude also loads one on its own
-when the task matches its description. `claude plugin details routeros-skills` lists the 34 skills.
+when the task matches its description. `claude plugin details routeros-skills` lists the skills.
 
 To install for one project only, add `--scope project` to both commands (it writes `.claude/settings.json` in that project).
 
@@ -33,11 +33,12 @@ Chat, Cowork and Claude Code all load skills. This plugin has nothing else (no h
 
 Measured with `claude plugin details routeros-skills` on version 0.1.0:
 
-- **About 5,700 tokens added to every session**, the names and descriptions of all 34 skills (140 to 210 each).
+- **About 5,700 tokens added to every session**, the names and descriptions of all 34 skills the repository had then (140 to 210
+  each). A skill added later costs another 140 to 210 tokens.
 - **About 1,200 to 2,500 tokens each time a skill is used**, the `SKILL.md` that loads. Reference files cost more only when the
   agent opens them.
 
-In a test session in the desktop app only 14 of the 34 skills were listed with their description and the other 20 by name
+In a test session in the desktop app, with those 34 skills, only 14 were listed with their description and the other 20 by name
 only, so Claude may not pick those on its own: name the area in the prompt or call the skill, for example
 `/routeros-skills:routeros-bgp`. Splitting the plugin into smaller bundles (for example the seven groups of `skills.sh.json`)
 would help; that is not done.

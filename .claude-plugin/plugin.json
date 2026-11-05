@@ -1,7 +1,7 @@
 {
   "name": "routeros-skills",
   "version": "0.1.0",
-  "description": "34 agent skills for MikroTik RouterOS 7: firewall, VPN, routing, wireless, scripting, REST API and more, each with the official documentation as Markdown references.",
+  "description": "Agent skills for MikroTik RouterOS 7: firewall, VPN, routing, wireless, scripting, REST API and more, each with the official documentation as Markdown references.",
   "author": {
     "name": "wiresage",
     "url": "https://github.com/wiresage"
