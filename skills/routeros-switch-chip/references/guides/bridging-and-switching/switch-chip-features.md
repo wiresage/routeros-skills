@@ -856,9 +856,9 @@ add dst-address=192.168.10.0/24 new-dst-ports="" ports=ether3 switch=switch1
 ## See also
 
 - [Switch Router](switch-chip-features.md#inter-vlan-routing)
-- [Basic VLAN Switching](user-guides/basic-vlan-switching.md)
+- [Basic VLAN Switching](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/basic-vlan-switching)
 - [Bridge Hardware Offloading](https://manual.mikrotik.com/docs/bridging-and-switching/index#bridge-hardware-offloading)
-- [Spanning Tree Protocol](user-guides/spanning-tree-protocol.md)
+- [Spanning Tree Protocol](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/spanning-tree-protocol)
 - [DHCP Snooping and Option 82](https://manual.mikrotik.com/docs/bridging-and-switching/index#dhcp-snooping-and-dhcp-option-82)
 - [MTU on RouterBOARD](https://manual.mikrotik.com/docs/hardware/mtu-in-routeros)
-- [Layer2 misconfiguration](user-guides/layer2-misconfiguration.md)
+- [Layer2 misconfiguration](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/layer2-misconfiguration)

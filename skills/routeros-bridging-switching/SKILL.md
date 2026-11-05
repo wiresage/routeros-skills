@@ -1,6 +1,6 @@
 ---
 name: routeros-bridging-switching
-description: Layer 2 on MikroTik RouterOS 7. Covers bridges and bridge ports, bridge VLAN filtering (trunk, access and hybrid ports, PVID, frame types, the bridge VLAN table, management VLAN access), VLAN interfaces and inter-VLAN routing, QinQ, STP, RSTP and MSTP, loop protect, IGMP and MLD snooping, DHCP snooping, ARP inspection and RA guard, hardware offloading and switch chip limits (CRS, Marvell Prestera, L3 hardware offloading), VXLAN, MACVLAN, MACsec, bridge firewall, and SwOS pointers. Use when building or changing a bridge or VLAN setup, turning a router into a switch, debugging VLAN traffic, loops or lost management access, or choosing between software and hardware-offloaded bridging.
+description: Layer 2 on MikroTik RouterOS 7. Covers bridges and bridge ports, bridge VLAN filtering (trunk, access and hybrid ports, PVID, frame types, the bridge VLAN table, management VLAN access), VLAN interfaces and inter-VLAN routing, QinQ, STP, RSTP and MSTP, loop protect, IGMP and MLD snooping, DHCP snooping, ARP inspection and RA guard, bridge hardware offloading and which bridge features break it, VXLAN, MACVLAN, MACsec, bridge firewall, and SwOS pointers. Use when building or changing a bridge or VLAN setup, turning a router into a switch, debugging VLAN traffic, loops or lost management access, or choosing between software and hardware-offloaded bridging. Switch chip features (mirroring, ACL, QoS, hardware routing) are in routeros-switch-chip.
 ---
 
 # RouterOS bridging, VLAN and switching
@@ -46,9 +46,9 @@ Bridge ports on a device with a switch chip forward at wire speed when the bridg
 frames never reach RouterOS (counters only). Only one bridge per switch chip is offloaded (CRS1xx/2xx support several; choose with `hw=yes|no`
 on the bridge port). Chips with Marvell Prestera, RTL8367, 88E6393X/88E6191X/88E6190, MT7621, MT7531 and EN7523 can offload VLAN filtering
 (since v7); other devices lose offloading when VLAN filtering is on and should use the VLAN-interface method of the "Basic VLAN switching" guide.
-Which bridge features break offloading per chip is tabulated in the bridge guide; Prestera devices also offer L3 hardware offloading
-(routing, FastTrack, QoS, MLAG: `l3-hardware-offloading.md`, `marvell-prestera-switch-chip-features.md`). Pages for older switch chips:
-`switch-chip-features.md`, `user-guides/crs1xx-2xx-series-switches-examples.md`.
+Which bridge features break offloading per chip is tabulated in the bridge guide. What the chip can do beyond forwarding (port mirroring,
+rate limits and storm control, port isolation, switch rules, hardware QoS, Layer 3 hardware offloading, the CRS1xx / CRS2xx tables) is the
+subject of `routeros-switch-chip`.
 
 ## Loops, STP and protection
 
@@ -78,10 +78,10 @@ Which bridge features break offloading per chip is tabulated in the bridge guide
 | --- | --- |
 | Bridge settings, ports, STP, hosts, multicast, VLAN filtering, snooping, bridge firewall | `references/guides/bridging-and-switching.md` |
 | Step-by-step VLAN cases | `references/guides/bridging-and-switching/user-guides/` (`basic-vlan-switching.md`, `bridge-vlan-table.md`, `wireless-vlan-trunk.md`, ...) |
-| Switch chip support tables, CRS and Prestera features | `references/guides/bridging-and-switching/switch-chip-features.md`, `marvell-prestera-switch-chip-features.md` |
+| Switch chip features, ACL, switch QoS, L3 hardware offloading, CRS tables | the skill `routeros-switch-chip` |
 | VLAN interfaces | `references/guides/bridging-and-switching/vlan.md` |
-| Properties | `references/cli/interface/bridge/`, `references/cli/interface/vlan.md`, `references/cli/interface/ethernet/switch/` |
+| Properties | `references/cli/interface/bridge/`, `references/cli/interface/vlan.md`, `references/cli/interface/vxlan.md` |
 | Everything else | `references/INDEX.md` |
 
-Related skills: `routeros-ethernet` (ports, interface lists), `routeros-wireless`, `routeros-firewall`, `routeros-vpn` (EoIP, L2TP-Ether),
+Related skills: `routeros-switch-chip` (switch chip, ACL, QoS, hardware routing), `routeros-ethernet` (ports, interface lists), `routeros-wireless`, `routeros-firewall`, `routeros-vpn` (EoIP, L2TP-Ether),
 `routeros-high-availability` (bonding, MLAG), `routeros-queues`, `routeros-dhcp` (relay and snooping).

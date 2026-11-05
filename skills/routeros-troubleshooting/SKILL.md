@@ -36,6 +36,7 @@ Work from evidence, not from guesses. Read before you change anything, change on
 | Some sites hang or pages half-load | MTU and MSS: `routeros-diagnostics-monitoring` (path MTU), `routeros-firewall` (MSS clamp) |
 | Link down, wrong speed, SFP not detected | `routeros-ethernet`, `routeros-hardware` |
 | VLAN traffic missing, loops, wrong port | `routeros-bridging-switching` |
+| Traffic bypasses the firewall or queues, offloading stops, switch ACL or QoS on a CRS | `routeros-switch-chip` |
 | Wi-Fi clients cannot connect or roam | `routeros-wireless` |
 | VPN does not establish | `routeros-vpn`, `routeros-ipsec`, `routeros-certificates` |
 | Slow or uneven bandwidth | `routeros-queues`, `routeros-diagnostics-monitoring` (torch, bandwidth test) |

@@ -109,5 +109,5 @@ worked examples: `references/guides/firewall-and-quality-of-service/queues/queue
 | Every property of `/queue/*` | `references/cli/queue/` |
 | Everything else | `references/INDEX.md` |
 
-Related skills: `routeros-firewall` (mangle marks, FastTrack), `routeros-bridging-switching` (QoS on switch chips and VLAN
-priority), `routeros-wireless`, `routeros-hotspot` (per-user rate limits).
+Related skills: `routeros-firewall` (mangle marks, FastTrack), `routeros-switch-chip` (hardware QoS on switch chips),
+`routeros-bridging-switching` (VLAN priority), `routeros-wireless`, `routeros-hotspot` (per-user rate limits).

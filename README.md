@@ -53,7 +53,8 @@ Read `routeros-fundamentals` first; it explains the console conventions and maps
 | Skill | Covers |
 | --- | --- |
 | [routeros-ethernet](skills/routeros-ethernet/SKILL.md) | Ethernet and SFP ports, auto-negotiation, forced mode, FEC, MTU and L2MTU, interface lists, PWR-Line |
-| [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS, CRS switch chips |
+| [routeros-bridging-switching](skills/routeros-bridging-switching/SKILL.md) | Bridges, VLAN filtering, STP/RSTP/MSTP, bridge hardware offloading, IGMP snooping, DHCP snooping, VXLAN, MACsec, SwOS |
+| [routeros-switch-chip](skills/routeros-switch-chip/SKILL.md) | Switch chip features per model, mirroring, rate limits, storm control, port isolation, switch ACL rules, Marvell Prestera QoS, L3 hardware offloading, CRS1xx/CRS2xx tables |
 | [routeros-ip-addressing](skills/routeros-ip-addressing/SKILL.md) | IPv4 and IPv6 addresses, pools, ARP, neighbor discovery and RAs, SLAAC, kernel IP settings |
 | [routeros-dhcp](skills/routeros-dhcp/SKILL.md) | DHCP server, client, relay, leases, options, DHCPv6 server/client and prefix delegation |
 | [routeros-dns](skills/routeros-dns/SKILL.md) | DNS resolver and cache, static entries and forwarders, adlists, DNS over HTTPS, mDNS repeater, DNS update |

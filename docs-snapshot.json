@@ -156,9 +156,9 @@
     },
     "routeros-bridging-switching": {
       "title": "Bridging, VLAN and switching",
-      "files": 85,
-      "guides": 25,
-      "cli_menus": 58,
+      "files": 42,
+      "guides": 20,
+      "cli_menus": 20,
       "product_manuals": 0,
       "help_only_pages": 1,
       "quick_guides": 0
@@ -386,6 +386,15 @@
       "cli_menus": 12,
       "product_manuals": 0,
       "help_only_pages": 1,
+      "quick_guides": 0
+    },
+    "routeros-switch-chip": {
+      "title": "Switch chip, hardware offloading and switch QoS",
+      "files": 44,
+      "guides": 5,
+      "cli_menus": 38,
+      "product_manuals": 0,
+      "help_only_pages": 0,
       "quick_guides": 0
     },
     "routeros-system-utilities": {

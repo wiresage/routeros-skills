@@ -92,7 +92,7 @@ Export does not contain user passwords, installed certificates, SSH keys, or the
 | --- | --- |
 | Start | `routeros-initial-setup`, `routeros-install-upgrade`, `routeros-troubleshooting` |
 | Security and access | `routeros-firewall`, `routeros-users-aaa`, `routeros-certificates`, `routeros-management-tools`, `routeros-api` |
-| Interfaces and IP services | `routeros-ethernet`, `routeros-bridging-switching`, `routeros-ip-addressing`, `routeros-dhcp`, `routeros-dns`, `routeros-queues`, `routeros-network-services` |
+| Interfaces and IP services | `routeros-ethernet`, `routeros-bridging-switching`, `routeros-switch-chip`, `routeros-ip-addressing`, `routeros-dhcp`, `routeros-dns`, `routeros-queues`, `routeros-network-services` |
 | Routing, tunnels, redundancy | `routeros-routing`, `routeros-ospf`, `routeros-bgp`, `routeros-mpls`, `routeros-vpn`, `routeros-ipsec`, `routeros-high-availability` |
 | Wireless and access networks | `routeros-wireless`, `routeros-mobile-networking`, `routeros-hotspot`, `routeros-user-manager` |
 | Operations and automation | `routeros-system-utilities`, `routeros-diagnostics-monitoring`, `routeros-scripting` |
