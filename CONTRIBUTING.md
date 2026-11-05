@@ -66,6 +66,10 @@ pull request, with one commit per step.
 a push): skill validation, link and repository checks, ruff, shellcheck and PSScriptAnalyzer. A failing run on `master`
 is the health check telling you something broke; fix it before anything else.
 
+Maintainers can also comment `@claude` on an issue or pull request to ask Claude Code for a review or a change; for a pull
+request it may add a short video explainer on [bisque.today](https://bisque.today/p/wiresage/routeros-skills). How that works
+and what it needs is in [docs/claude-and-bisque.md](docs/claude-and-bisque.md).
+
 ## Reporting problems
 
 Wrong or dangerous advice in a skill is a bug; open an issue with the skill name, the line and what a router actually does.
