@@ -1,0 +1,24 @@
+{
+  "_comment": "Written by 'python tools/skill_coverage.py --write-lock' after a drift review. It records the manual the references were last compared with; the report in docs/skill-coverage.md does not depend on it.",
+  "manual": {
+    "url": "https://manual.mikrotik.com",
+    "version": "7.26"
+  },
+  "reviewed": "2026-11-05",
+  "snapshot_crawled": "2026-10-18",
+  "index": {
+    "url": "https://manual.mikrotik.com/llms.txt",
+    "sha256": "7c6e6530d0ac366f05ed57771803677e9b14beab5ab7ae39d09616d81d31cba1",
+    "bytes": 332250,
+    "entries": 1484,
+    "etag": "\"6aec4050-511da\"",
+    "last_modified": "Thu, 05 Nov 2026 08:37:36 GMT"
+  },
+  "corpus": {
+    "url": "https://manual.mikrotik.com/llms-full.txt",
+    "sha256": "d3e0a57c758e274a9b61b1572903a193388cfd6b56d602d052bd9c0faf758a32",
+    "bytes": 6625909,
+    "etag": "\"6aec4050-651a75\"",
+    "last_modified": "Thu, 05 Nov 2026 08:37:36 GMT"
+  }
+}
