@@ -61,7 +61,7 @@ Use plain `MAJOR.MINOR.PATCH`:
 To release, after the pull request with the bump is merged, from an up-to-date `master`:
 
 ```bash
-claude plugin tag --dry-run          # shows routeros-skills--v0.1.0 and checks plugin.json against the marketplace entry
+claude plugin tag --dry-run          # shows routeros-skills--v0.2.0 and checks plugin.json against the marketplace entry
 claude plugin tag --push             # creates and pushes the tag
 ```
 
