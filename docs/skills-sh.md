@@ -15,7 +15,7 @@ Facts taken from the [skills.sh docs](https://www.skills.sh/docs), the [FAQ](htt
   ranked by those events. skills.sh documents no crawling of GitHub, and a community answer based on the CLI source says GitHub topics do not trigger discovery.
 - There is no submission form, no publish command in the CLI, and no write endpoint in the skills.sh API (the API is
   read-only). Packs (unlisted bundles) can be created only in the web UI after signing in with Vercel.
-- Skills are discovered by the CLI in `skills/<name>/SKILL.md`, which needs `name` and `description` in its front matter. All 34
+- Skills are discovered by the CLI in `skills/<name>/SKILL.md`, which needs `name` and `description` in its front matter. All
   skills of this repository are found.
 - `skills.sh.json` at the repository root controls only how the repository page groups the skills. skills.sh reads it in the
   background after an install with telemetry on, so a change shows up after the next install and a cache refresh.

@@ -195,7 +195,7 @@ add mac-protocol=0x80F3 new-vlan-id=400 ports=ether8 switch=switch1
 
 #### VLAN Tunneling (Q-in-Q)
 
-Since RouterOS v6.43, it is possible to use a provider bridge (IEEE 802.1ad) and Tag Stacking VLAN filtering, and hardware offloading at the same time. The configuration is described in the [Bridge VLAN Tunneling (Q-in-Q)](vlan.md#q-in-q) section.
+Since RouterOS v6.43, it is possible to use a provider bridge (IEEE 802.1ad) and Tag Stacking VLAN filtering, and hardware offloading at the same time. The configuration is described in the [Bridge VLAN Tunneling (Q-in-Q)](https://manual.mikrotik.com/docs/bridging-and-switching/vlan#q-in-q) section.
 
 > **Danger**
 >
@@ -247,7 +247,7 @@ Enable bridge VLAN filtering:
 
 ---
 
-MikroTik devices with a Marvell Prestera switch are capable of running STP, RSTP, and MSTP on a hardware level. For more detailed information, you should check out the [Spanning Tree Protocol](user-guides/spanning-tree-protocol.md) manual page and for relevant configuration/monitoring options see the [Bridging and Switching](../bridging-and-switching.md) page.
+MikroTik devices with a Marvell Prestera switch are capable of running STP, RSTP, and MSTP on a hardware level. For more detailed information, you should check out the [Spanning Tree Protocol](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/spanning-tree-protocol) manual page and for relevant configuration/monitoring options see the [Bridging and Switching](https://manual.mikrotik.com/docs/bridging-and-switching) page.
 
 ## Bonding
 
@@ -335,7 +335,7 @@ add mode=802.3ad name=bond_1-2-3-4 slaves=sfp-sfpplus1,sfp-sfpplus2,sfp-sfpplus3
 
 > **Info**
 >
-> Interface bonding does not create an interface with a larger link speed. Interface bonding creates a virtual interface that can load balance traffic over multiple interfaces. More details can be found on the [LAG interfaces and load balancing](user-guides/layer2-misconfiguration.md#lag-interfaces-and-load-balancing) page.
+> Interface bonding does not create an interface with a larger link speed. Interface bonding creates a virtual interface that can load balance traffic over multiple interfaces. More details can be found on the [LAG interfaces and load balancing](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/layer2-misconfiguration#lag-interfaces-and-load-balancing) page.
 
 #### Configure port switching
 
@@ -622,7 +622,7 @@ Since RouterOS v6.43 it is possible to create a Private VLAN setup, an example c
 
 ---
 
-MikroTik devices with Marvell Prestera switch are capable of using IGMP/MLD Snooping on a hardware level. To see more detailed information, you should check out the [IGMP/MLD snooping](user-guides/bridge-igmp-mld-snooping.md) manual page.
+MikroTik devices with Marvell Prestera switch are capable of using IGMP/MLD Snooping on a hardware level. To see more detailed information, you should check out the [IGMP/MLD snooping](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/bridge-igmp-mld-snooping) manual page.
 
 ## DHCP Snooping and DHCP Option 82
 
@@ -638,13 +638,13 @@ MikroTik devices with a Marvell Prestera switch are capable of using DHCP Snoopi
 
 ---
 
-MikroTik devices with Marvell Prestera switch are capable of using DHCPv6 Snooping with custom Option 18 (Interface ID) and Option 37 (Remote ID) on a hardware level since RouterOS v7.23. The switch will create a dynamic ACL rule to capture the DHCPv6 packets and redirect them to the main CPU for further processing. To see more detailed information, please visit the [DHCPv6 Snooping / DHCPv6 Shield](../bridging-and-switching.md#dhcpv6-snooping--dhcpv6-shield) manual page.
+MikroTik devices with Marvell Prestera switch are capable of using DHCPv6 Snooping with custom Option 18 (Interface ID) and Option 37 (Remote ID) on a hardware level since RouterOS v7.23. The switch will create a dynamic ACL rule to capture the DHCPv6 packets and redirect them to the main CPU for further processing. To see more detailed information, please visit the [DHCPv6 Snooping / DHCPv6 Shield](https://manual.mikrotik.com/docs/bridging-and-switching#dhcpv6-snooping--dhcpv6-shield) manual page.
 
 ## RA Guard
 
 ---
 
-MikroTik devices with a Marvell Prestera switch are capable of using RA Guard on a hardware level since RouterOS v7.22. The switch will create a dynamic ACL rule to capture the relevant IPv6 packets and redirect them to the main CPU for further processing. To see more detailed information, please visit the [RA Guard](../bridging-and-switching.md#ra-guard) manual page.
+MikroTik devices with a Marvell Prestera switch are capable of using RA Guard on a hardware level since RouterOS v7.22. The switch will create a dynamic ACL rule to capture the relevant IPv6 packets and redirect them to the main CPU for further processing. To see more detailed information, please visit the [RA Guard](https://manual.mikrotik.com/docs/bridging-and-switching#ra-guard) manual page.
 
 ## Mirroring
 
@@ -806,7 +806,7 @@ There are other options as well, check the [ACL section](marvell-prestera-switch
 
 Since RouterOS v6.42 it is possible to enable traffic storm control. A traffic storm can emerge when certain frames are continuously flooded on the network. Storm control settings are generally configured on non-uplink ports to restrict incoming storm traffic on those specific ports. This helps safeguard the entire switch and its connected ports by minimizing the impact of traffic storms across the network.
 
-For example, if a network loop has been created and no loop avoidance mechanisms are used (e.g. [Spanning Tree Protocol](user-guides/spanning-tree-protocol.md)), broadcast or multicast frames can quickly overwhelm the network, causing degraded network performance or even complete network breakdown. Using MikroTik devices with a Marvell Prestera switch, it is possible to limit broadcast, unknown multicast and unknown unicast traffic. Unknown unicast traffic is considered when a switch does not contain a host entry for the destined MAC address. Unknown multicast traffic is considered when a switch does not contain a multicast group entry in the `/interface/bridge/mdb` menu. Storm control settings should be applied to ingress ports; the egress traffic will be limited.
+For example, if a network loop has been created and no loop avoidance mechanisms are used (e.g. [Spanning Tree Protocol](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/spanning-tree-protocol)), broadcast or multicast frames can quickly overwhelm the network, causing degraded network performance or even complete network breakdown. Using MikroTik devices with a Marvell Prestera switch, it is possible to limit broadcast, unknown multicast and unknown unicast traffic. Unknown unicast traffic is considered when a switch does not contain a host entry for the destined MAC address. Unknown multicast traffic is considered when a switch does not contain a multicast group entry in the `/interface/bridge/mdb` menu. Storm control settings should be applied to ingress ports; the egress traffic will be limited.
 
 *[Figure: Traffic Storm]*
 
@@ -1058,7 +1058,7 @@ Since RouterOS 6.43 it is possible to load, save and reset SwOS configuration, a
 
 ## See also
 
-[Basic VLAN switching](user-guides/basic-vlan-switching.md)
+[Basic VLAN switching](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/basic-vlan-switching)
 
 [Bridge Hardware Offloading](https://manual.mikrotik.com/docs/bridging-and-switching/index#bridge-hardware-offloading)
 
@@ -1066,14 +1066,14 @@ Since RouterOS 6.43 it is possible to load, save and reset SwOS configuration, a
 
 [Quality of Service](quality-of-service.md)
 
-[Spanning Tree Protocol](user-guides/spanning-tree-protocol.md)
+[Spanning Tree Protocol](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/spanning-tree-protocol)
 
 [MTU on RouterBOARD](https://manual.mikrotik.com/docs/hardware/mtu-in-routeros)
 
-[Layer2 misconfiguration](user-guides/layer2-misconfiguration.md)
+[Layer2 misconfiguration](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/layer2-misconfiguration)
 
-[Bridge VLAN Table](user-guides/bridge-vlan-table.md)
+[Bridge VLAN Table](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/bridge-vlan-table)
 
-[Bridge IGMP/MLD snooping](user-guides/bridge-igmp-mld-snooping.md)
+[Bridge IGMP/MLD snooping](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/bridge-igmp-mld-snooping)
 
 [Multi-chassis Link Aggregation Group](https://manual.mikrotik.com/docs/high-availability-solutions/multi-chassis-link-aggregation-group)

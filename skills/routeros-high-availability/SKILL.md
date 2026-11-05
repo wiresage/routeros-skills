@@ -100,4 +100,4 @@ traffic to directly connected ISP subnets in mangle before PCC rules to avoid lo
 | Everything else | `references/INDEX.md` |
 
 Related skills: `routeros-routing` (distance, scope, check-gateway, ECMP, routing tables), `routeros-firewall` (mangle, protocol 112),
-`routeros-bridging-switching` (STP, VLANs, hardware offload), `routeros-ethernet`, `routeros-diagnostics-monitoring` (Netwatch for custom failover).
+`routeros-bridging-switching` (STP, VLANs, hardware offload), `routeros-switch-chip` (hardware bonding and MLAG limits), `routeros-ethernet`, `routeros-diagnostics-monitoring` (Netwatch for custom failover).

@@ -73,7 +73,7 @@ add address=192.168.99.1/24 interface=MGMT
 set drop-if-invalid-or-src-port-not-member-of-vlan-on-ports=ether1,ether2,ether3
 ```
 
-More detailed examples can be found [here](crs1xx-2xx-series-switches-examples.md#vlan).
+More detailed examples can be found [here](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples#vlan).
 
 ## Other devices with a built-in switch chip
 
@@ -101,13 +101,13 @@ set ether3 vlan-mode=secure vlan-header=always-strip default-vlan-id=30
 set switch1-cpu vlan-header=leave-as-is vlan-mode=secure
 ```
 
-More detailed examples can be found [here](../switch-chip-features.md#setup-examples).
+More detailed examples can be found [here](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features#setup-examples).
 
 > **Info: Applicability & Scope**
 >
 > This configuration is intended for RouterBOARD series devices (RB4xx, RB9xx, RB2011, RB3011, hAP, hEX, cAP, etc.).
 >
-> Not all devices with a switch chip support hardware-level VLAN switching. If a device has `VLAN table` support, it can use the built-in switch chip. Check your chip's capability using `/interface/ethernet/switch/print` or the [compatibility table](../switch-chip-features.md).
+> Not all devices with a switch chip support hardware-level VLAN switching. If a device has `VLAN table` support, it can use the built-in switch chip. Check your chip's capability using `/interface/ethernet/switch/print` or the [compatibility table](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 > **Warning: Hardware Limitations & Configuration Rules**
 >

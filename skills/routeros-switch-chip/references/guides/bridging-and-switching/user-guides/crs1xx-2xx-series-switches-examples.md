@@ -66,7 +66,7 @@ Drop precedence - an internal CRS switch QoS attribute used for packet enqueuing
 
 ---
 
-To set up port switching on CRS1xx/2xx series switches, check the [Bridge Hardware Offloading](../../bridging-and-switching.md#bridge-hardware-offloading) page.
+To set up port switching on CRS1xx/2xx series switches, check the [Bridge Hardware Offloading](https://manual.mikrotik.com/docs/bridging-and-switching#bridge-hardware-offloading) page.
 
 > **Warning**
 >
@@ -425,7 +425,7 @@ add name=VLAN400 interface=bridge1 vlan-id=400
 
 > **Danger**
 >
-> Make sure the VLAN interfaces are created on top of the bridge interface instead of any of the physical interfaces. If the VLAN interfaces are created on a slave interface, then the packet might not be received correctly, and therefore routing might fail. More detailed information can be found in the [VLAN interface on a slave interface](layer2-misconfiguration.md#vlan-interface-on-a-slave-interface) manual page.
+> Make sure the VLAN interfaces are created on top of the bridge interface instead of any of the physical interfaces. If the VLAN interfaces are created on a slave interface, then the packet might not be received correctly, and therefore routing might fail. More detailed information can be found in the [VLAN interface on a slave interface](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/layer2-misconfiguration#vlan-interface-on-a-slave-interface) manual page.
 
 Add IP addresses on created VLAN interfaces. In this example, three 192.168.x.1 addresses are added to VLAN200, VLAN300, and VLAN400 interfaces:
 
@@ -1077,10 +1077,10 @@ add port=ether5 rate=5k meter-unit=packet packet-types=broadcast,arp-or-nd,unreg
 
 ---
 
-- [Basic VLAN switching](basic-vlan-switching.md)
-- [Bridge Hardware Offloading](../../bridging-and-switching.md#bridge-hardware-offloading)
-- [Spanning Tree Protocol](spanning-tree-protocol.md)
-- [IGMP Snooping](bridge-igmp-mld-snooping.md)
-- [DHCP Snooping and Option 82](../../bridging-and-switching.md#dhcp-snooping-and-dhcp-option-82)
+- [Basic VLAN switching](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/basic-vlan-switching)
+- [Bridge Hardware Offloading](https://manual.mikrotik.com/docs/bridging-and-switching#bridge-hardware-offloading)
+- [Spanning Tree Protocol](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/spanning-tree-protocol)
+- [IGMP Snooping](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/bridge-igmp-mld-snooping)
+- [DHCP Snooping and Option 82](https://manual.mikrotik.com/docs/bridging-and-switching#dhcp-snooping-and-dhcp-option-82)
 - [MTU on RouterBOARD](https://manual.mikrotik.com/docs/hardware/mtu-in-routeros)
-- [Layer2 misconfiguration](layer2-misconfiguration.md)
+- [Layer2 misconfiguration](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/layer2-misconfiguration)

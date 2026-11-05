@@ -16,9 +16,9 @@ Snapshot: manual.mikrotik.com crawled 2026-10-18. Last compared with the live ma
 
 | | Named | Named elsewhere | Not named | Excluded | Total |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Guides | 273 (73%) | 0 | 100 | 0 | 373 |
+| Guides | 275 (74%) | 0 | 98 | 0 | 373 |
 | Help-only pages | 159 (87%) | 0 | 23 | 0 | 182 |
-| CLI menus | 537 (86%) | 9 | 80 | 0 | 626 |
+| CLI menus | 538 (86%) | 9 | 79 | 0 | 626 |
 
 The skills hold 473 CLI commands inside those menu pages and 618 product manual and regulatory pages that are looked up rather than routed.
 
@@ -28,7 +28,7 @@ The skills hold 473 CLI commands inside those menu pages and 618 product manual 
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | [routeros-api](../skills/routeros-api/SKILL.md) | 114 | 3/4 | 99% | 0/0 (n/a) | 0 | 0 |
 | [routeros-bgp](../skills/routeros-bgp/SKILL.md) | 108 | 7/8 | 100% | 11/11 (100%) | 0 | 0 |
-| [routeros-bridging-switching](../skills/routeros-bridging-switching/SKILL.md) | 87 | 19/26 | 89% | 52/58 (90%) | 0 | 6 |
+| [routeros-bridging-switching](../skills/routeros-bridging-switching/SKILL.md) | 87 | 16/21 | 96% | 15/20 (75%) | 0 | 5 |
 | [routeros-certificates](../skills/routeros-certificates/SKILL.md) | 96 | 1/1 | 100% | 8/8 (100%) | 0 | 0 |
 | [routeros-containers](../skills/routeros-containers/SKILL.md) | 95 | 12/12 | 100% | 7/10 (70%) | 0 | 3 |
 | [routeros-dhcp](../skills/routeros-dhcp/SKILL.md) | 102 | 6/6 | 100% | 14/20 (70%) | 0 | 6 |
@@ -54,8 +54,9 @@ The skills hold 473 CLI commands inside those menu pages and 618 product manual 
 | [routeros-routing](../skills/routeros-routing/SKILL.md) | 108 | 9/20 | 83% | 52/53 (98%) | 0 | 1 |
 | [routeros-scripting](../skills/routeros-scripting/SKILL.md) | 109 | 3/3 | 100% | 3/3 (100%) | 0 | 0 |
 | [routeros-storage](../skills/routeros-storage/SKILL.md) | 86 | 21/22 | 99% | 7/12 (58%) | 0 | 5 |
+| [routeros-switch-chip](../skills/routeros-switch-chip/SKILL.md) | 159 | 5/5 | 100% | 38/38 (100%) | 0 | 0 |
 | [routeros-system-utilities](../skills/routeros-system-utilities/SKILL.md) | 110 | 10/19 | 65% | 13/28 (46%) | 4 | 11 |
-| [routeros-troubleshooting](../skills/routeros-troubleshooting/SKILL.md) | 106 | 8/10 | 76% | 0/0 (n/a) | 0 | 0 |
+| [routeros-troubleshooting](../skills/routeros-troubleshooting/SKILL.md) | 107 | 8/10 | 76% | 0/0 (n/a) | 0 | 0 |
 | [routeros-user-manager](../skills/routeros-user-manager/SKILL.md) | 95 | 1/1 | 100% | 13/13 (100%) | 0 | 0 |
 | [routeros-users-aaa](../skills/routeros-users-aaa/SKILL.md) | 94 | 4/5 | 99% | 14/15 (93%) | 0 | 1 |
 | [routeros-vpn](../skills/routeros-vpn/SKILL.md) | 117 | 6/16 | 53% | 31/37 (84%) | 0 | 6 |
@@ -67,7 +68,6 @@ The 25 areas with the most arguments in menus that no `SKILL.md` names (for the 
 
 | Skill | Area | Menus not named | Arguments |
 | --- | --- | ---: | ---: |
-| routeros-bridging-switching | `/interface/ethernet/switch` | 1 | 164 |
 | routeros-system-utilities | `/system/ups` | 1 | 35 |
 | routeros-ipsec | `/system/keymat-provider` | 1 | 29 |
 | routeros-hardware | `/interface/ethernet/poe` | 1 | 25 |
@@ -92,6 +92,7 @@ The 25 areas with the most arguments in menus that no `SKILL.md` names (for the 
 | routeros-containers | `/app/network` | 1 | 8 |
 | routeros-ethernet | `/interface/ethernet/pon` | 1 | 8 |
 | routeros-management-tools | `/dude` | 1 | 8 |
+| routeros-system-utilities | `/system/ptp/port` | 1 | 8 |
 
 ## Largest guides not named
 
@@ -101,7 +102,6 @@ The 15 biggest guide pages that their skill's `SKILL.md` does not link.
 | --- | --- | ---: |
 | routeros-iot | [bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/user-guides/bluetooth-tag-tracking-mqtt-thingsboard.md) | 58.1 KiB |
 | routeros-iot | [lora/user-guides/tg-lr-setup-guide.md](../skills/routeros-iot/references/guides/internet-of-things/lora/user-guides/tg-lr-setup-guide.md) | 47.9 KiB |
-| routeros-bridging-switching | [bridging-and-switching/quality-of-service.md](../skills/routeros-bridging-switching/references/guides/bridging-and-switching/quality-of-service.md) | 44.3 KiB |
 | routeros-iot | [bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-tag-advertisement-formats.md) | 25.7 KiB |
 | routeros-iot | [bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-android-devices.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/mikrotik-beacon-manager/mikrotik-beacon-manager-android-devices.md) | 20.5 KiB |
 | routeros-iot | [bluetooth/user-guides/mqtt-https-and-aws-configuration.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/user-guides/mqtt-https-and-aws-configuration.md) | 20.1 KiB |
@@ -110,10 +110,11 @@ The 15 biggest guide pages that their skill's `SKILL.md` does not link.
 | routeros-install-upgrade | [routeros-licensing/chr/chr-licensing.md](../skills/routeros-install-upgrade/references/guides/getting-started/routeros-licensing/chr/chr-licensing.md) | 17.2 KiB |
 | routeros-iot | [bluetooth/user-guides/sending-temperature-readings-from-tg.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/user-guides/sending-temperature-readings-from-tg.md) | 16.1 KiB |
 | routeros-iot | [bluetooth/user-guides/email-notification-mikrotik-ble-tag-s.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/user-guides/email-notification-mikrotik-ble-tag-s.md) | 16.1 KiB |
-| routeros-bridging-switching | [bridging-and-switching/vxlan.md](../skills/routeros-bridging-switching/references/guides/bridging-and-switching/vxlan.md) | 15.3 KiB |
 | routeros-install-upgrade | [getting-started/routeros-licensing/x86.md](../skills/routeros-install-upgrade/references/guides/getting-started/routeros-licensing/x86.md) | 15.2 KiB |
 | routeros-iot | [bluetooth/user-guides/mqtt-and-azure-configuration.md](../skills/routeros-iot/references/guides/internet-of-things/bluetooth/user-guides/mqtt-and-azure-configuration.md) | 14.0 KiB |
 | routeros-management-tools | [management-tools/quick-set.md](../skills/routeros-management-tools/references/guides/management-tools/quick-set.md) | 13.2 KiB |
+| routeros-management-tools | [management-tools/tr-069.md](../skills/routeros-management-tools/references/guides/management-tools/tr-069.md) | 12.8 KiB |
+| routeros-vpn | [virtual-private-networks/zerotier.md](../skills/routeros-vpn/references/guides/virtual-private-networks/zerotier.md) | 12.7 KiB |
 
 ## Exclusions
 

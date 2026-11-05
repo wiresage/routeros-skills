@@ -31,7 +31,7 @@ matching prefix; for example `/ip/firewall/filter` belongs to the skill that lis
 | `/interface/eoipv6` | `routeros-vpn` |
 | `/interface/ethernet` | `routeros-ethernet` |
 | `/interface/ethernet/poe` | `routeros-hardware` |
-| `/interface/ethernet/switch` | `routeros-bridging-switching` |
+| `/interface/ethernet/switch` | `routeros-switch-chip` |
 | `/interface/gre` | `routeros-vpn` |
 | `/interface/gre6` | `routeros-vpn` |
 | `/interface/ipip` | `routeros-vpn` |
@@ -232,6 +232,7 @@ matching prefix; for example `/ip/firewall/filter` belongs to the skill that lis
 | `routeros-routing` | Routing, VRF and policy routing |
 | `routeros-scripting` | Scripting |
 | `routeros-storage` | Storage and disks |
+| `routeros-switch-chip` | Switch chip, hardware offloading and switch QoS |
 | `routeros-system-utilities` | System information and utilities |
 | `routeros-troubleshooting` | Troubleshooting and support |
 | `routeros-user-manager` | User Manager |

@@ -25,10 +25,11 @@
     },
     {
       "title": "Interfaces and IP services",
-      "description": "Ethernet and SFP, bridges and VLANs, addressing, DHCP, DNS, queues and network services.",
+      "description": "Ethernet and SFP, bridges and VLANs, switch chips, addressing, DHCP, DNS, queues and network services.",
       "skills": [
         "routeros-ethernet",
         "routeros-bridging-switching",
+        "routeros-switch-chip",
         "routeros-ip-addressing",
         "routeros-dhcp",
         "routeros-dns",

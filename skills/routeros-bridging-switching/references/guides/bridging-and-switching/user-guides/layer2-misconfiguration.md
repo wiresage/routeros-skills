@@ -484,8 +484,8 @@ Below is a list of possible symptoms that might be a result of this kind of misc
 Before using bridge VLAN filtering, check if your device supports it at the hardware level. A table with compatibility can be found at the [Bridge Hardware Offloading](../../bridging-and-switching.md#bridge-hardware-offloading) section. Each type of device currently requires a different configuration method. Below is a list of which configuration should be used on a device in order to use the benefits of hardware offloading:
 
 - [MikroTik devices with Marvell Prestera switch](https://manual.mikrotik.com/docs/bridging-and-switching/index#bridge-vlan-filtering)
-- [CRS1xx/CRS2xx series devices](crs1xx-2xx-series-switches-examples.md#vlan)
-- [Other devices with a switch chip](../switch-chip-features.md#setup-examples)
+- [CRS1xx/CRS2xx series devices](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples#vlan)
+- [Other devices with a switch chip](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features#setup-examples)
 
 ## VLAN filtering with multiple switch chips
 

@@ -715,9 +715,9 @@ A packet that is received by one of the ports always passes through the switch l
 
 Packets can be forwarded to the CPU via the switch CPU port for management access, routing, firewall rules, or traffic control. This requires configuration specific to your device and use case. Check the manual page for your specific device:
 
-- [Marvell Prestera switch chip features](bridging-and-switching/marvell-prestera-switch-chip-features.md)
-- [CRS1xx/2xx series switches](bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md)
-- [Non-CRS series switches](bridging-and-switching/switch-chip-features.md)
+- [Marvell Prestera switch chip features](https://manual.mikrotik.com/docs/bridging-and-switching/marvell-prestera-switch-chip-features)
+- [CRS1xx/2xx series switches](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples)
+- [Non-CRS series switches](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features)
 
 > **Danger**
 >
@@ -725,13 +725,13 @@ Packets can be forwarded to the CPU via the switch CPU port for management acces
 
 > **Warning**
 >
-> [CRS1xx/2xx series switches](bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md#multiple-switch-groups) support multiple hardware offloaded bridges per switch chip. All other devices support only one. Use `hw=yes/no` under `/interface/bridge/port` to select which bridge uses hardware offloading.
+> [CRS1xx/2xx series switches](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples#multiple-switch-groups) support multiple hardware offloaded bridges per switch chip. All other devices support only one. Use `hw=yes/no` under `/interface/bridge/port` to select which bridge uses hardware offloading.
 
 The following tables list which bridge features are supported with hardware offloading (✓) or disable hardware offloading (✗) for each switch chip type:
 
 ### MikroTik devices with Marvell Prestera Switch
 
-For example: CRS3xx, CRS4xx, CRS5xx, CRS8xx, CCR2116, CCR2216, RDS2216. See [Marvell Prestera switch chip features](bridging-and-switching/marvell-prestera-switch-chip-features.md).
+For example: CRS3xx, CRS4xx, CRS5xx, CRS8xx, CCR2116, CCR2216, RDS2216. See [Marvell Prestera switch chip features](https://manual.mikrotik.com/docs/bridging-and-switching/marvell-prestera-switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -752,7 +752,7 @@ For example: CRS3xx, CRS4xx, CRS5xx, CRS8xx, CCR2116, CCR2216, RDS2216. See [Mar
 
 ### 88E6393X, 88E6191X, 88E6190
 
-For example: RB5009 series, L009 series, CCR2004-16G-2S+. See [Switch Chip Features](bridging-and-switching/switch-chip-features.md).
+For example: RB5009 series, L009 series, CCR2004-16G-2S+. See [Switch Chip Features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -775,7 +775,7 @@ For example: RB5009 series, L009 series, CCR2004-16G-2S+. See [Switch Chip Featu
 
 ### MT7621, MT7531, EN7523, RTL8367
 
-For example: hEX S, hAP ax lite, hEX Refresh, RBM33G, RB4011, RB1100AHx4. See [Switch Chip Features](bridging-and-switching/switch-chip-features.md).
+For example: hEX S, hAP ax lite, hEX Refresh, RBM33G, RB4011, RB1100AHx4. See [Switch Chip Features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -796,7 +796,7 @@ For example: hEX S, hAP ax lite, hEX Refresh, RBM33G, RB4011, RB1100AHx4. See [S
 
 ### CRS1xx/CRS2xx series
 
-For example: CRS105, CRS106, CRS109, CRS112, CRS125, CRS210, CRS212, CRS226. See [CRS1xx/2xx series switches](bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md).
+For example: CRS105, CRS106, CRS109, CRS112, CRS125, CRS210, CRS212, CRS226. See [CRS1xx/2xx series switches](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -817,7 +817,7 @@ For example: CRS105, CRS106, CRS109, CRS112, CRS125, CRS210, CRS212, CRS226. See
 
 ### QCA8337, Atheros8327, Atheros8316
 
-For example: RB3011, RB1100AHx2, RB850Gx2, cAP ac, wAP ac, Audience, mANTBox, CCR1009. See [Switch Chip Features](bridging-and-switching/switch-chip-features.md).
+For example: RB3011, RB1100AHx2, RB850Gx2, cAP ac, wAP ac, Audience, mANTBox, CCR1009. See [Switch Chip Features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -838,7 +838,7 @@ For example: RB3011, RB1100AHx2, RB850Gx2, cAP ac, wAP ac, Audience, mANTBox, CC
 
 ### Atheros8227, Atheros7240
 
-For example: hAP lite, hEX lite, PowerBox, wsAP ac lite, RBmAP2nD. See [Switch Chip Features](bridging-and-switching/switch-chip-features.md).
+For example: hAP lite, hEX lite, PowerBox, wsAP ac lite, RBmAP2nD. See [Switch Chip Features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -857,7 +857,7 @@ For example: hAP lite, hEX lite, PowerBox, wsAP ac lite, RBmAP2nD. See [Switch C
 
 ### IPQ-PPE, QCA8386, PIPE 98PX1012
 
-For example: hAP ax series, cAP ax, Chateau ax series, hAP be³ Media, CCR2004-1G-12S+2XS. See [Switch Chip Features](bridging-and-switching/switch-chip-features.md).
+For example: hAP ax series, cAP ax, Chateau ax series, hAP be³ Media, CCR2004-1G-12S+2XS. See [Switch Chip Features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features).
 
 | Feature | HW Offload |
 | :-- | :--: |
@@ -1132,7 +1132,7 @@ An optional step is to set `frame-types=admit-only-vlan-tagged` on the bridge in
 /interface/bridge/set bridge1 frame-types=admit-only-vlan-tagged
 ```
 
-Since RouterOS v7, it is possible to route traffic using L3 HW offloading on certain devices. See more details on [L3 Hardware Offloading](bridging-and-switching/l3-hardware-offloading.md).
+Since RouterOS v7, it is possible to route traffic using L3 HW offloading on certain devices. See more details on [L3 Hardware Offloading](https://manual.mikrotik.com/docs/bridging-and-switching/l3-hardware-offloading).
 
 ### Management access configuration
 
@@ -1829,9 +1829,9 @@ This section describes specific bridge NAT options.
 
 ---
 
-- [CRS1xx/2xx series switches](bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples.md)
-- [Marvell Prestera switch chip features](bridging-and-switching/marvell-prestera-switch-chip-features.md)
-- [Switch chip features](bridging-and-switching/switch-chip-features.md)
+- [CRS1xx/2xx series switches](https://manual.mikrotik.com/docs/bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples)
+- [Marvell Prestera switch chip features](https://manual.mikrotik.com/docs/bridging-and-switching/marvell-prestera-switch-chip-features)
+- [Switch chip features](https://manual.mikrotik.com/docs/bridging-and-switching/switch-chip-features)
 - [MTU on RouterBOARD](https://manual.mikrotik.com/docs/hardware/mtu-in-routeros)
 - [Layer2 misconfiguration](bridging-and-switching/user-guides/layer2-misconfiguration.md)
 - [Bridge VLAN Table](bridging-and-switching/user-guides/bridge-vlan-table.md)

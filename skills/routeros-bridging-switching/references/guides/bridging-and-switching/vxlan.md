@@ -111,7 +111,7 @@ The configuration is complete. It is possible to include the VXLAN interface int
 
 ---
 
-Starting from RouterOS version 7.18, initial support for hardware-offloaded VXLAN was introduced. This makes the offloaded VXLAN data plane possible, supporting encapsulation and decapsulation, and allowing for static one-to-one VLAN-to-VXLAN mappings within a vlan-filtering bridge. Refer to the [L3HW Device Support](l3-hardware-offloading.md#l3hw-device-support) documentation for a list of compatible devices.
+Starting from RouterOS version 7.18, initial support for hardware-offloaded VXLAN was introduced. This makes the offloaded VXLAN data plane possible, supporting encapsulation and decapsulation, and allowing for static one-to-one VLAN-to-VXLAN mappings within a vlan-filtering bridge. Refer to the [L3HW Device Support](https://manual.mikrotik.com/docs/bridging-and-switching/l3-hardware-offloading#l3hw-device-support) documentation for a list of compatible devices.
 
 At this point, some known features are not yet implemented.
 

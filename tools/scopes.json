@@ -273,11 +273,24 @@
         "interface/macsec",
         "interface/macvlan",
         "interface/vxlan",
-        "interface/ethernet/switch",
         "system/swos"
       ],
       "help": [
         "37224456"
+      ]
+    },
+    {
+      "name": "routeros-switch-chip",
+      "title": "Switch chip, hardware offloading and switch QoS",
+      "manual": [
+        "bridging-and-switching/switch-chip-features",
+        "bridging-and-switching/marvell-prestera-switch-chip-features",
+        "bridging-and-switching/l3-hardware-offloading",
+        "bridging-and-switching/quality-of-service",
+        "bridging-and-switching/user-guides/crs1xx-2xx-series-switches-examples"
+      ],
+      "cli": [
+        "interface/ethernet/switch"
       ]
     },
     {
